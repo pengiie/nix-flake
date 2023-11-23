@@ -10,6 +10,8 @@
     experimental-features = [ "nix-command" "flakes" ];
   };
 
+  programs.zsh.enable = true;
+
   services.thermald.enable = true;
 
   boot.loader.systemd-boot.enable = true;
@@ -24,12 +26,15 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  programs.dconf.enable = true;
+
   users.users.nathan = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" ];
     packages = with pkgs; [
       firefox
     ];
+    shell = pkgs.zsh;
   };
 
   environment.systemPackages = with pkgs; [

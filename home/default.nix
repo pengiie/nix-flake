@@ -3,25 +3,18 @@
   pkgs,
   ...
 }: {
+  nixpkgs.overlays = (import ../nix/overlay.nix inputs);
   nix.package = pkgs.nixFlakes;
   nixpkgs.config = {
     allowUnfree = true;
     allowUnfreePredicate = _: true;
   };
 
-  xdg.desktopEntries.discord = {
-    name = "Discord";
-    genericName = "Discord";
-    comment = "All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.";
-    icon = "discord";
-    exec = "discord --enable-features=UseOzonePlatform --ozone-platform=wayland %U";
-  };
-
   home = {
     username = "nathan";
     homeDirectory = "/home/nathan";
     sessionVariables = {
-      TERM = "alacritty";
+      TERM = "kitty";
       BROWSER = "google-chrome";
     };
     pointerCursor = {
@@ -31,6 +24,13 @@
       gtk.enable = true;
     };
   };
+
+  programs.zsh.oh-my-zsh = {
+    enable = true;
+    theme = "robbyrussell";
+  };
+
+  programs.gh.enable = true;
 
   gtk.enable = true;
   gtk.gtk3.extraConfig = {
@@ -48,6 +48,7 @@
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
     google-chrome
     bibata-cursors
+    blueberry
     neovim
     pavucontrol
     ripgrep
@@ -61,8 +62,10 @@
     recursive = true;
   };
 
-  programs.alacritty = {
+  programs.kitty = {
     enable = true;
+    theme = "Catppuccin-Mocha";
+    shellIntegration.enableZshIntegration = true;
   };
 
   wayland.windowManager.hyprland = {
@@ -70,7 +73,6 @@
     xwayland.enable = true;
     settings = {
       monitor = [ "eDP-1,2496x1664@59.984,0x0,1.25" ];
-
       input = {
         touchpad = {
           natural_scroll = true;
@@ -78,9 +80,9 @@
 	      };
 	      accel_profile = "flat";
       };
-
-      resize_on_border = true;
-
+      general = {
+        resize_on_border = true;
+      };
       bind = [
         ## Hyprland
         "SUPER, R, exec, hyprctl reload" # reload hyprland
@@ -98,11 +100,10 @@
         "SUPER_SHIFT, L, movewindow, right"
 
         ## System
-        "SUPER_SHIFT, B, exec, alacritty --hold -e home-manager switch --flake /home/nathan/flake && bash" # reload home-manager flake in new alacritty window
 
         ## Quick Apps
-        "SUPER, Return, exec, alacritty"
-        "SUPER, Space, exec, wofi"
+        "SUPER, Return, exec, kitty"
+        "ALT, Space, exec, wofi"
       ];
     };
   };
@@ -111,6 +112,7 @@
     enable = true;
     settings = {
       show = "drun";
+      # normal_window = true;
     };
   };
 }

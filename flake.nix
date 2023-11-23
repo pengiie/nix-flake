@@ -20,7 +20,7 @@
     pkgs = nixpkgs.legacyPackages.${system};
     user = "nathan";
     hostname = "nathan-laptop";
-    specialArgs = args; 
+    specialArgs = args;
   in {
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       inherit pkgs system;
