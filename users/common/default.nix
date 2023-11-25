@@ -1,5 +1,5 @@
 # Common configuration for all users.
-{ config, ... }: {
+{ config, pkgs, ... }: {
   imports = [
     ./user.nix
   ];
