@@ -1,5 +1,11 @@
-{ nixpkgs, ... }: {
+{ nixpkgs, ... }@inputs
+let
+importLocalOverlay = file:
+    lib.composeExtentensions
+      (_: _: { __inputs = inputs: })
+      (import file);
+in: {
   nixpkgs.overlays = [
-    (import ./chrome.nix)
+    (importLocalOverlay ./chrome.nix)
   ];
 }
