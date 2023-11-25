@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 let
   inherit (lib) mkOption types;
 in {
@@ -26,8 +26,8 @@ in {
           };
         };
         refreshRate = mkOption {
-          type = types.float;
-          default = 60.0;
+          type = types.int;
+          default = 60;
           description = "The refresh rate of the monitor.";
         };
         position = {
