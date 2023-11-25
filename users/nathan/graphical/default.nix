@@ -1,8 +1,10 @@
 { pkgs, ... }: {
   imports = [
-    ./discord
-    ./kitty
-    ./theming
+    ./desktop
+
+    ./discord.nix
+    ./kitty.nix
+    ./theming.nix
   ];
 
   home.packages = with pkgs; [

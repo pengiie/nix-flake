@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   imports = [
-    ./git
+    ./git.nix
     ./nvim
   ];
 

@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   imports = [
-    ./hyprland
-    ./wofi
+    ./hyprland.nix
+    ./wofi.nix
   ];
 
   home.packages = with pkgs; [

@@ -4,9 +4,10 @@
   ../common
 
   ./dev
-  ./desktop
   ./graphical
-  ./zsh
+  ./overlays
+
+  ./zsh.nix
   ];
 
   user = {

@@ -1,14 +1,15 @@
-{ config, ... }: {
+{ ... }: {
   programs.git = {
     enable = true;
-    userName = config.user.git.name;
-    userEmail = config.user.git.email;
+    userName = "pengiie";
+    userEmail = "nathan@pengie.dev";
 
     extraConfig = {
       init.defaultBranch = "main";
     };
   };
 
+  # Github cli and git credentials helper
   programs.gh = {
     enable = true;
     gitCredentialHelper.enable = true;

@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
   imports = [
-    ./host
+    ./host.nix
   ];
 
   nix.settings = {

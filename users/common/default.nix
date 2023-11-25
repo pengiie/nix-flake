@@ -1,7 +1,7 @@
 # Common configuration for all users.
 { config, ... }: {
   imports = [
-    ./user
+    ./user.nix
   ];
 
   nixpkgs.config = {
