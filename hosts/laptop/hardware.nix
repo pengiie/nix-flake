@@ -1,4 +1,4 @@
-{ inputs, lib, modulesPath, ... }: {
+{ inputs, lib, modulesPath, config, ... }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     inputs.nixos-hardware.nixosModules.microsoft-surface-common
