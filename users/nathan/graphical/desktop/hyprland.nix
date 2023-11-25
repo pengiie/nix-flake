@@ -5,9 +5,9 @@
 
     settings = {
       monitor = map (monitor: let
-        resolution = "${monitor.resolution.width}x${monitor.resolution.height}";
-        position = "${monitor.position.x}x${monitor.position.y}";
-      in "${monitor.name}, ${resolution}, ${position}, ${monitor.scale}"
+        resolution = "${toString monitor.resolution.width}x${toString monitor.resolution.height}";
+        position = "${toString monitor.position.x}x${toString monitor.position.y}";
+      in "${monitor.name}, ${resolution}, ${position}, ${toString monitor.scale}"
       ) config.host.monitors;
 
       input = {
