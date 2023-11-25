@@ -57,6 +57,8 @@
   # Enable OpenGL support
   hardware.opengl.enable = true;
 
+  xdg.portal.enable = true;
+
   # Bluetooth
   hardware.bluetooth = {
     enable = true;
