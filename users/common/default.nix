@@ -9,7 +9,7 @@
     allowUnfreePredicate = _: true;
   };
 
-  nix.packages = pkgs.nixFlakes;
+  nix.package = pkgs.nixFlakes;
 
   home = {
     username = config.user.name;
