@@ -16,12 +16,42 @@ opt.tabstop = 2 -- what a tab in a file means to nvim
 opt.softtabstop = 2 -- when i click tab, this is how many spaces
 
 -- line number
-opt.relativenumber = true -- use relative line numbers (get lost in the sauce)
+opt.number = true -- use relative line numbers (get lost in the sauce)
 opt.numberwidth = 2 -- line number is 2 width
 
 opt.ignorecase = true -- ignore case for searches
 opt.smartcase = true -- be smart about ignoring case
 
+-- key mappings
+vim.g.mapleader = " ";
 
+-- line numbers
+vim.keymap.set("n", "<leader>ln", ":set number!<CR>") -- toggle line numbers
+vim.keymap.set("n", "<leader>rn", ":set relativenumber!<CR>") -- toggle relative line numbers
 
+-- save
+vim.keymap.set("n", "<C-s>", ":w<CR>") -- save/write
+vim.keymap.set("i", "<C-s>", ":w<CR>") -- save/write
 
+-- insert mode movements
+vim.keymap.set("i", "<C-h>", "<Left>") -- move left
+vim.keymap.set("i", "<C-j>", "<Down>") -- move down
+vim.keymap.set("i", "<C-k>", "<Up>") -- move up
+vim.keymap.set("i", "<C-l>", "<Right>") -- move right
+
+-- window movements
+vim.keymap.set("n", "<C-h>", "<C-w>h") -- move left
+vim.keymap.set("n", "<C-j>", "<C-w>j") -- move down
+vim.keymap.set("n", "<C-k>", "<C-w>k") -- move up
+vim.keymap.set("n", "<C-l>", "<C-w>l") -- move right
+
+-- window management
+vim.keymap.set("n", "<leader>q", ":q<CR>") -- quit
+vim.keymap.set("n", "<leader>Q", ":qa<CR>") -- quit all
+
+-- "programs"
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file tree
+vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>") -- find files
+
+-- copilot
+vim.keymap.set("i", "<A-u>", function() require("copilot.suggestion").accept() end)
