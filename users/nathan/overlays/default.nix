@@ -3,7 +3,7 @@ let
   inherit (nixpkgs) pkgs;
 
   importLocalOverlay = file:
-    lib.fixed-points.composeExtentensions
+    lib.fixedPoints.composeExtensions
       (_: _: { __inputs = inputs; })
       (import file);
 
