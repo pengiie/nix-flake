@@ -57,7 +57,15 @@
   # Enable OpenGL support
   hardware.opengl.enable = true;
 
-  xdg.portal.enable = true;
+  # XDG portal support
+  xdg.portal = {
+    enable = true;
+    config.common.default = "*";
+    extraPortals = with pkgs; [
+      xdg-desktop-portal
+      xdg-desktop-portal-hyprland
+    ];
+  };
 
   # Bluetooth
   hardware.bluetooth = {
