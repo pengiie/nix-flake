@@ -7,7 +7,7 @@ let
       (_: _: { __inputs = inputs; })
       (import file);
 
-in: {
+in {
   nixpkgs.overlays = [
     (importLocalOverlay ./chrome.nix)
   ];
