@@ -1,4 +1,6 @@
 { ... }: {
+  imports = [ ../common/host.nix ];
+
    # Setting the host name option defined in ../common/host.nix
   host = {
     name = "desktop"; 
