@@ -1,5 +1,5 @@
 { nixpkgs, ... }: {
   nixpkgs.overlays = [
-    ./chrome
+    (import ./chrome.nix)
   ];
 }
