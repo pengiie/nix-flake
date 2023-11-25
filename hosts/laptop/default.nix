@@ -14,4 +14,8 @@
 
   # Service to control fans through software
   services.thermald.enable = true;
+
+  services.tlp.extraConfig = ``
+    USB_AUTOSUSPEND=0
+  ``;
 }
