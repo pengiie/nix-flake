@@ -9,7 +9,7 @@
         name = "DP-1";
         resolution.width = 2560;
         resolution.height = 1440;
-        refreshRate = 144.0;
+        refreshRate = 144;
         position.x = 1920;
         position.y = 0;
         scale = 1.0;
@@ -18,7 +18,7 @@
         name = "DP-2";
         resolution.width = 1920;
         resolution.height = 1080;
-        refreshRate = 60.0;
+        refreshRate = 60;
         position.x = 0;
         position.y = 0;
         scale = 1.0;
