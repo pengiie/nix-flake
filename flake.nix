@@ -1,5 +1,5 @@
 {
-  description = "NixOS Configuration";
+  description = "Pengiie/Nathan's NixOS/Home Manager Configurations";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -15,27 +15,28 @@
     homeManager,
     nixos-hardware,
     ...
-  }@args: let
+  }@inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    user = "nathan";
-    hostname = "nathan-laptop";
-    specialArgs = args;
-  in {
-    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+
+    mkSystem = modules: nixpkgs.lib.nixosSystem {
       inherit pkgs system;
-      modules = [ 
-        nixos-hardware.nixosModules.microsoft-surface-common
-	./system 
-      ];
+      specialArgs = { inherit inputs; };
+      modules = modules;
     };
 
-    homeConfigurations.${user} = homeManager.lib.homeManagerConfiguration {
+    mkUser = modules: homeManager.lib.homeManagerConfiguration {
       inherit pkgs;
-      extraSpecialArgs = specialArgs;
-      modules = [
-        ./home
-      ];
+      extraSpecialArgs = { inherit inputs; };
+      modules = modules;
+    };
+  in {
+    nixosConfigurations = {
+      laptop = mkSystem [ ./hosts/laptop ];
+    };
+
+    homeConfigurations = {
+      nathan = mkUser [ ./users/nathan ]; 
     };
   };
 }

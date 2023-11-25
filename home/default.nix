@@ -1,9 +1,19 @@
 { 
   inputs,
   pkgs,
+  nixpkgs,
+  lib,
   ...
-}: {
-  nixpkgs.overlays = (import ../nix/overlay.nix inputs);
+}@attrs: {
+ xdg.desktopEntries.discord = {
+    name = "Discord";
+    genericName = "Discord";
+    comment = "All-in-one voice and text chat for gamers that's free, secure, and works on both your desktop and phone.";
+    icon = "discord";
+    exec = "discord --enable-features=UseOzonePlatform --ozone-platform=wayland %U";
+  };
+
+  nixpkgs.overlays = import ../nix/overlay.nix attrs;
   nix.package = pkgs.nixFlakes;
   nixpkgs.config = {
     allowUnfree = true;
