@@ -33,10 +33,11 @@
   in {
     nixosConfigurations = {
       laptop = mkSystem [ ./hosts/laptop ];
+      desktop = mkSystem [ ./hosts/desktop ];
     };
 
     homeConfigurations = {
-      nathan = mkUser [ ./users/nathan ]; 
+      nathan-desktop = mkUser [ ./users/nathan ./hosts/desktop/host.nix ]; 
     };
   };
 }

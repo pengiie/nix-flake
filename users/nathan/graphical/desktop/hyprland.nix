@@ -1,10 +1,14 @@
-{ ... }: {
+{ config, lib, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
 
     settings = {
-      monitor = [ "eDP-1,2496x1664@59.984,0x0,1.25" ];
+      monitor = lib.map (monitor: let
+        resolution = "${monitor.resolution.width}x${monitor.resolution.height}";
+        position = "${monitor.position.x}x${monitor.position.y}";
+      in "${monitor.name}, ${resolution}, ${position}, ${monitor.scale}"
+      ) config.host.monitors;
 
       input = {
         touchpad = {
