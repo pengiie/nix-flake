@@ -4,7 +4,7 @@ let
 
   importLocalOverlay = file:
     lib.composeExtentensions
-      (_: _: { __inputs = inputs: })
+      (_: _: { __inputs = inputs; })
       (import file);
 
 in: {
