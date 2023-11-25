@@ -51,7 +51,7 @@ vim.keymap.set("n", "<leader>Q", ":qa<CR>") -- quit all
 
 -- "programs"
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file tree
-vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>") -- find files
+vim.keymap.set("n", "<leader>ff", function () require("telescope.buildin").find_files, { desc = "Find Files" } end) -- find files
 
 -- copilot
 vim.keymap.set("i", "<A-u>", function() require("copilot.suggestion").accept() end)

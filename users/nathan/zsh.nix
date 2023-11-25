@@ -1,6 +1,7 @@
 { pkgs, ... }: {
-
+  # Enable shell history
   programs.hstr.enable = true;
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;

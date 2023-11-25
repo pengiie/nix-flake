@@ -39,6 +39,17 @@ local plugins = {
     }
   },
 
+  -- telescope
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      { "nvim-telescope/telescope-fzy-native.nvim", build = "make" },
+    },
+    config = function()
+      require("plugins.configs.telescope")
+    end
+  },
+
   -- github copilot
   {
     "zbirenbaum/copilot.lua",
