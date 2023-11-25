@@ -1,14 +1,5 @@
-{ nixpkgs, lib, ... }@inputs:
-let
-  inherit (nixpkgs) pkgs;
-
-  importLocalOverlay = file:
-    lib.fixedPoints.composeExtensions
-      (_: _: { __inputs = inputs; })
-      (import file);
-
-in {
+{ nixpkgs, lib, ... }@inputs: {
   nixpkgs.overlays = [
-    (importLocalOverlay ./chrome.nix)
+    (import ./chrome.nix inputs)
   ];
 }
