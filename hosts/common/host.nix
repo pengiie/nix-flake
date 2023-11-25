@@ -8,7 +8,7 @@ in {
       description = "The hostname of the current machine.";
     };
     monitors = mkOption {
-      type = with types; types.listOf types.submodule {
+      type = types.listOf (types.submodule {
         name = mkOption {
           type = types.str;
           description = "The name of the monitor.";
@@ -47,7 +47,7 @@ in {
           default = 1.0;
           description = "The scale of the monitor.";
         };
-      };
+      });
       default = [];
       description = "A list of monitors to use for the host.";
     };
