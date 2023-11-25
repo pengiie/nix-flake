@@ -1,4 +1,4 @@
-{ nixpkgs, ... }@inputs
+{ nixpkgs, ... }@inputs:
 let
 importLocalOverlay = file:
     lib.composeExtentensions
