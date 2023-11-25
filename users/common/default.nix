@@ -12,7 +12,7 @@
   nix.packages = pkgs.nixFlakes;
 
   home = {
-    name = config.user.name;
+    username = config.user.name;
     homeDirectory = "/home/${config.user.name}";
     stateVersion = "23.05";
   };
