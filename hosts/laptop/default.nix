@@ -3,6 +3,7 @@
     ../common
 
     ./hardware.nix
+    ./host.nix
   ];
 
   # Setting the host name option defined in ../common/host.nix

@@ -7,5 +7,8 @@
   home.packages = with pkgs; [
     # Wayland clipboard
     wl-clipboard
+
+    # Media control cli
+    playerctl
   ];
 }

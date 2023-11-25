@@ -11,6 +11,8 @@
       "alt+q" = "close_tab";
       "alt+l" = "next_tab";
       "alt+h" = "previous_tab";
+      "ctrl+shift+c" = "copy_to_clipboard";
+      "ctrl+shift+v" = "paste_from_clipboard";
     };
   };
 }

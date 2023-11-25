@@ -4,6 +4,7 @@ let
 in {
   imports = [
     ./monitors.nix
+    ./desktop.nix
   ];
 
   options = {

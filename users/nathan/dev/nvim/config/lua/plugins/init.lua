@@ -1,7 +1,12 @@
-local plugins = {
+local general = {
   -- deps
   {
     "nvim-tree/nvim-web-devicons",
+    lazy = false,
+  },
+
+  {
+    "nvim-lua/plenary.nvim",
     lazy = false,
   },
 
@@ -36,7 +41,13 @@ local plugins = {
     lazy = false,
     dependencies = {
       "nvim-tree/nvim-web-devicons"
-    }
+    },
+    opts = function()
+      return require("plugins.configs.lualine")
+    end,
+    config = function(_, opts)
+      require("lualine").setup(opts)
+    end
   },
 
   -- telescope
@@ -45,9 +56,6 @@ local plugins = {
     dependencies = {
       { "nvim-telescope/telescope-fzy-native.nvim", build = "make" },
     },
-    config = function()
-      require("plugins.configs.telescope")
-    end
   },
 
   -- github copilot
@@ -63,6 +71,96 @@ local plugins = {
       require("copilot").setup(opts)
     end,
   },
-};
 
-require("lazy").setup(plugins);
+  -- syntax highlighting
+  {
+    "nvim-treesitter/nvim-treesitter",
+    lazy = true,
+    event = "BufRead",
+    opts = function()
+      return require("plugins.configs.treesitter")
+    end,
+    config = function(_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end,
+  },
+
+  
+  {
+    'saecki/crates.nvim',
+    tag = 'v0.4.0',
+    lazy = false,
+    config = function()
+      require('crates').setup({
+        src = {
+          cmp = {
+            enabled = true,
+          },
+        },
+      })
+    end,
+  },
+ 
+  -- lsp
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      {
+        "jose-elias-alvarez/null-ls.nvim",
+        opts = function()
+          return require("plugins.configs.null-ls")
+        end,
+        config = function(_, opts)
+          require("null-ls").setup(opts)
+        end,
+      },
+
+      "folke/neodev.nvim",
+    },
+    config = function(_, opts)
+      require("plugins.configs.lspconfig")
+    end,
+  },
+
+  -- auto complete
+  {
+    "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
+    dependencies = {
+      -- autopairing
+      {
+        "windwp/nvim-autopairs",
+        opts = {
+          fast_wrap = {},
+        },
+        config = function(_, opts)
+          require("nvim-autopairs").setup(opts)
+        end
+      },
+
+      -- cmp sources
+      {
+        "hrsh7th/cmp-nvim-lua",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-path",
+      },
+    },
+    opts = function()
+      return require("plugins.configs.cmp")
+    end,
+    config = function(_, opts)
+      require("cmp").setup(opts)
+    end,
+  },
+}
+
+local plugins = {};
+for _, plugin in ipairs(general) do
+  table.insert(plugins, plugin)
+end
+for _, plugin in ipairs(require("plugins.lsp")) do
+  table.insert(plugins, plugin)
+end
+
+require("lazy").setup(plugins)
