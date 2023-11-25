@@ -4,7 +4,7 @@
     xwayland.enable = true;
 
     settings = {
-      monitor = lib.map (monitor: let
+      monitor = map (monitor: let
         resolution = "${monitor.resolution.width}x${monitor.resolution.height}";
         position = "${monitor.position.x}x${monitor.position.y}";
       in "${monitor.name}, ${resolution}, ${position}, ${monitor.scale}"
