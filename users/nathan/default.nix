@@ -15,7 +15,7 @@
     email = "nathan@pengie.dev";
   };
 
-  sessionVariables = {
+  home.sessionVariables = {
     TERM = "kitty";
     EDITOR = "nvim";
     BROWSER = "google-chrome";
