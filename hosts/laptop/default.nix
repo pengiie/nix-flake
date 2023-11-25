@@ -2,7 +2,7 @@
   imports = [
     ../common
 
-    ./hardware-configuration.nix
+    ./hardware.nix
   ];
 
   # Setting the host name option defined in ../common/host.nix
