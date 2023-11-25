@@ -5,7 +5,7 @@
 
   ./dev
   ./graphical
-  ./overlays
+  # ./overlays
 
   ./zsh.nix
   ];
