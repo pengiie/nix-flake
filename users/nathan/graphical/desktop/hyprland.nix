@@ -1,7 +1,8 @@
-{ config, ... }: {
+{ config, lib, ... }: {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+    enableNvidiaPatches = true;
 
     settings = {
       monitor = map (monitor: let
@@ -19,7 +20,14 @@
       };
 
       general = {
+        "col.inactive_border" = "rgba(00000000)";
+        "col.active_border" = "rgba(${lib.strings.removePrefix "#" config.theme.colors.primary}44)";
+
         resize_on_border = true;
+      };
+
+      decoration = {
+        rounding = 8;
       };
 
       bind = ([

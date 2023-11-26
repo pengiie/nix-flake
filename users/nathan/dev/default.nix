@@ -16,5 +16,7 @@
     clangStdenv
     shaderc
     python3
+    vscode
+    vulkan-tools
   ];
 }

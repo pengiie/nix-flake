@@ -4,6 +4,11 @@
   };
   system.stateVersion = "23.05";
 
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = _: true;
+  };
+
   # Zsh shell
   programs.zsh.enable = true;
 

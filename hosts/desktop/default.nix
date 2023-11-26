@@ -4,6 +4,7 @@
 
     ./hardware.nix
     ./host.nix
+    ./nvidia.nix
   ];
 
   # Setting the host name option defined in ../common/host.nix

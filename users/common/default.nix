@@ -2,6 +2,7 @@
 { config, pkgs, ... }: {
   imports = [
     ./user.nix
+    ./theme.nix
   ];
 
   nixpkgs.config = {
