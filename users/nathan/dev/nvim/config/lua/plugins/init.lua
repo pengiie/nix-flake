@@ -27,7 +27,7 @@ local general = {
     dependencies = {
       "nvim-tree/nvim-web-devicons"
     },
-    ops = function()
+    opts = function()
       return require("plugins.configs.nvim-tree")
     end,
     config = function(_, opts)
@@ -47,6 +47,21 @@ local general = {
     end,
     config = function(_, opts)
       require("lualine").setup(opts)
+    end
+  },
+
+  -- tab line
+  {
+    "akinsho/nvim-bufferline.lua",
+    version = "*",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons"
+    },
+    opts = function()
+      return require("plugins.configs.bufferline")
+    end,
+    config = function(_, opts)
+      require("bufferline").setup(opts)
     end
   },
 
@@ -82,6 +97,16 @@ local general = {
     end,
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
+    end,
+  },
+
+  -- color code highlighting
+  {
+    "norcalli/nvim-colorizer.lua",
+    lazy = true,
+    event = "BufRead",
+    config = function()
+      require("colorizer").setup()
     end,
   },
 }

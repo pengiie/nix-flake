@@ -21,3 +21,5 @@ opt.numberwidth = 2 -- line number is 2 width
 
 opt.ignorecase = true -- ignore case for searches
 opt.smartcase = true -- be smart about ignoring case
+
+opt.termguicolors = true -- enable the good colors

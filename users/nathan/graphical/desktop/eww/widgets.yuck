@@ -1,0 +1,42 @@
+(defwidget workspace [id name active]
+  (button
+    :class "workspace-button ${active ? "active" : "inactive"}"
+    :onclick "hyprctl dispatch workspace ${id}"
+    {name}
+  )
+)
+
+(defwidget workspaces [workspaces]
+  (box
+    :class "workspace-group"
+    :orientation "h"
+    :spacing 0
+    (for w in workspaces
+      (workspace
+        :id {w.id}
+        :name {w.name}
+        :active {w.active}
+      )
+    )
+  )
+)
+
+(defwidget status-bar-section [align]
+  (box
+    :orientation "h"
+    :halign align
+    :hexpand true
+    :spacing 6
+    :space-evenly false
+    (children)
+  )
+)
+
+(defwidget status-bar [workspaces]
+  (box
+    :class "status-bar"
+    :orientation "h"
+    :spacing 0
+    (status-bar-section
+      :align "start"
+      (workspaces :workspaces workspaces))))

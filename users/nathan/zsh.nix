@@ -10,6 +10,7 @@
       up = "sudo nixos-rebuild switch --flake /home/nathan/flake#${config.host.name}";
       upuser = "home-manager switch --flake /home/nathan/flake#${config.user.name}-${config.host.name}";
       apc = "bluetoothctl connect EC:73:79:35:26:BD";
+      apd = "bluetoothctl disconnect EC:73:79:35:26:BD";
     };
   };
 

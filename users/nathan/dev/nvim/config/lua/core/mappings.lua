@@ -24,9 +24,17 @@ vim.keymap.set("n", "<C-l>", "<C-w>l") -- move right
 vim.keymap.set("n", "<leader>q", ":q<CR>") -- quit
 vim.keymap.set("n", "<leader>Q", ":qa<CR>") -- quit all
 
--- "programs"
+-- bufferline tabs
+vim.keymap.set("n", "<leader>x", function() 
+  require("bufferline").cycle(-1)
+  require("bufferline").close_in_direction("right")
+end) -- close buffer
+
+vim.keymap.set("n", "<TAB>", function() require("bufferline").cycle(1) end) -- cycle buffer right
+vim.keymap.set("n", "<S-TAB>", function() require("bufferline").cycle(-1) end) -- cycle buffer left
+
+-- "programs"::
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file tree
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Find Files" }) -- find files
 
 -- copilot mappings are in plugins.configs.copilot because they override ours im pretty sure
-

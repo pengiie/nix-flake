@@ -23,12 +23,20 @@
         "col.inactive_border" = "rgba(00000000)";
         "col.active_border" = "rgba(${lib.strings.removePrefix "#" config.theme.colors.primary}44)";
 
+        gaps_in = config.theme.spacing.margins.desktop;
+        gaps_out = config.theme.spacing.margins.desktop;
+
         resize_on_border = true;
       };
 
       decoration = {
         rounding = 8;
       };
+
+      exec = [
+        # Launch eww status bars
+        "eww kill && eww daemon && ${lib.concatMapStringsSep " && " (m: "eww open ${m.name}-status-bar") config.host.monitors}"
+      ];
 
       bind = ([
         ## Hyprland
@@ -73,7 +81,6 @@
         ## Quick Apps
         "SUPER, Return, exec, kitty"
         "ALT, Space, exec, wofi"
-
       # If on laptop, add brightness controls with light cli tool
       ]) ++ (if config.host.name == "laptop" then
         [",XF86MonBrightnessUp, exec, light -A 5%" ",XF86MonBrightnessDown, exec, light -U 5%"] 

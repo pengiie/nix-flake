@@ -1,5 +1,7 @@
 { pkgs, ... }: {
   imports = [
+    ./eww
+
     ./hyprland.nix
     ./wofi.nix
   ];
@@ -10,5 +12,8 @@
 
     # Media control cli
     playerctl
+
+    # Color picker
+    hyprpicker
   ];
 }

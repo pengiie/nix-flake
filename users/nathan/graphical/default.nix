@@ -12,5 +12,6 @@
     google-chrome
     blueberry
     pavucontrol
+    obsidian
   ];
 }

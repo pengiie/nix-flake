@@ -16,18 +16,19 @@
     nixos-hardware,
     ...
   }@inputs: let
+    cutil = import ./utils { inherit inputs; lib = nixpkgs.lib; };
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
 
     mkSystem = modules: nixpkgs.lib.nixosSystem {
       inherit pkgs system;
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs cutil; };
       modules = modules;
     };
 
     mkUser = modules: homeManager.lib.homeManagerConfiguration {
       inherit pkgs;
-      extraSpecialArgs = { inherit inputs; };
+      extraSpecialArgs = { inherit inputs cutil; };
       modules = modules;
     };
   in {

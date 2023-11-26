@@ -93,12 +93,12 @@ local lsps = {
     end,
   },
 
-  -- nix
+  -- yuck, eww
   {
-    "LnL7/vim-nix",
-    lazy = false,
-    ft = "nix",
-  }
+    "elkowar/yuck.vim",
+    lazy = true,
+    ft = "yuck",
+  },
 }
 
 return lsps
