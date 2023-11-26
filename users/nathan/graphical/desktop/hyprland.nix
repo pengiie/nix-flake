@@ -2,7 +2,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    enableNvidiaPatches = true;
 
     settings = {
       monitor = map (monitor: let
@@ -17,6 +16,11 @@
           scroll_factor = 0.5;
         };
         accel_profile = "flat";
+      };
+
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_fingers = 3;
       };
 
       general = {
@@ -35,7 +39,7 @@
 
       exec = [
         # Launch eww status bars
-        "eww kill && eww daemon && ${lib.concatMapStringsSep " && " (m: "eww open ${m.name}-status-bar") config.host.monitors}"
+        "eww daemon & ${lib.concatMapStringsSep " & " (m: "eww open ${m.name}-status-bar") config.host.monitors}"
       ];
 
       bind = ([

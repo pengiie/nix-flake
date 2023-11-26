@@ -7,13 +7,15 @@
     monitors = [
       {
         name = "eDP-1";
-        resolution.width = 1920;
-        resolution.height = 1080;
+        resolution.width = 2496;
+        resolution.height = 1664;
         refreshRate = 60;
         position.x = 0;
         position.y = 0;
-        scale = 1.0;
+        scale = 1.15;
       }
     ];
+    desktop.quickSwap.left = "eDP-1";
+    desktop.quickSwap.right = "eDP-1";
   };
 }

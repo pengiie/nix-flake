@@ -4,11 +4,6 @@
   };
   system.stateVersion = "23.05";
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = _: true;
-  };
-
   # Zsh shell
   programs.zsh.enable = true;
 
@@ -59,13 +54,13 @@
   hardware.opengl.enable = true;
 
   # XDG portal support
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal
-      xdg-desktop-portal-hyprland
-    ];
-  };
+  #xdg.portal = {
+  #  enable = true;
+  #  extraPortals = with pkgs; [
+  #    xdg-desktop-portal
+  #    xdg-desktop-portal-hyprland
+  #  ];
+  #};
 
   # Bluetooth
   hardware.bluetooth = {
