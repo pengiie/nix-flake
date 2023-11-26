@@ -19,6 +19,10 @@ in {
         type = types.str;
         default = catppuccin.mocha.text;
       };
+      active = mkOption {
+        type = types.str;
+        default = colors.primary;
+      };
 
       bg = {
         base0 = mkOption {

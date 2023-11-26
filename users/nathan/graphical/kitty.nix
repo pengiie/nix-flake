@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, cutil, ... }: {
   programs.kitty = {
     enable = true;
     theme = "Catppuccin-Mocha";
@@ -15,6 +15,16 @@
       "alt+shift+tab" = "previous_tab";
       "ctrl+shift+c" = "copy_to_clipboard";
       "ctrl+shift+v" = "paste_from_clipboard";
+    };
+
+    settings = {
+      tab_bar_min_tabs = 1;
+      tab_bar_edge = "bottom";
+      tab_bar_style = "powerline";
+      tab_powerline_style = "slanted";
+      tab_bar_align = "left";
+
+      active_tab_background = cutil.color.shadeHex config.theme.colors.active 0.75;
     };
   };
 }

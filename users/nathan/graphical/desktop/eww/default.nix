@@ -56,11 +56,11 @@
       background-color: ${config.theme.colors.bg.base3};
 
       &.active {
-        background-color: ${cutil.color.shadeLHex config.theme.colors.primary 0.25 };
+        background-color: ${cutil.color.shadeLHex config.theme.colors.active 0.25 };
       }
 
       &:hover {
-        background-color: ${config.theme.colors.primary};
+        background-color: ${config.theme.colors.active};
       }
     }
   '';
