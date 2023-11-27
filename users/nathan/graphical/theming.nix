@@ -14,9 +14,15 @@
       bibata-cursors
       
       # Fonts
-      (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
+      (pkgs.nerdfonts.override { fonts = [ 
+        "FiraCode"
+        "DaddyTimeMono"
+        "CascadiaCode"
+      ]; })
     ];
   };
+
+  fonts.fontconfig.enable = true;
 
   gtk = {
     enable = true;

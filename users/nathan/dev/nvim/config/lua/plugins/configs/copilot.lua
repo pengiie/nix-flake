@@ -4,13 +4,10 @@ local options = {
     auto_trigger = true,
     debounce = 75,
     keymap = {
-      accept = "<M-y>",
+      accept = "<M-u>",
       accept_word = false,
       accept_line = false,
     },
-  },
-  filetypes = {
-    lua = true,
   },
 }
 

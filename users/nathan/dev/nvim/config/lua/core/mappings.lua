@@ -25,16 +25,43 @@ vim.keymap.set("n", "<leader>q", ":q<CR>") -- quit
 vim.keymap.set("n", "<leader>Q", ":qa<CR>") -- quit all
 
 -- bufferline tabs
-vim.keymap.set("n", "<leader>x", function() 
-  require("bufferline").cycle(-1)
-  require("bufferline").close_in_direction("right")
-end) -- close buffer
+local bufferline = require("bufferline")
 
-vim.keymap.set("n", "<TAB>", function() require("bufferline").cycle(1) end) -- cycle buffer right
-vim.keymap.set("n", "<S-TAB>", function() require("bufferline").cycle(-1) end) -- cycle buffer left
+-- close current tab
+vim.keymap.set("n", "<leader>x", function() 
+  local state = require("bufferline.state")
+
+  local close_index, close_elem =  require("bufferline.commands").get_current_element_index(state)
+
+  -- bufferline tab buffer is not selected so don't continue
+  if not close_index then
+    return
+  end
+
+  if #state.components > 1 then
+    -- Get off the buffer we are about to close
+    bufferline.cycle(-1)
+  end
+
+  vim.schedule(function()
+    vim.cmd("bdelete! " .. close_elem.id)
+    require("bufferline.ui").refresh()
+  end)
+end)
+
+vim.keymap.set("n", "<TAB>", function() bufferline.cycle(1) end) -- cycle tab right
+vim.keymap.set("n", "<S-TAB>", function() bufferline.cycle(-1) end) -- cycle tab left
 
 -- "programs"::
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file tree
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Find Files" }) -- find files
 
 -- copilot mappings are in plugins.configs.copilot because they override ours im pretty sure
+
+-- lsp mappings
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" }) -- go to definition
+vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "Go to references" }) -- go to references
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover" }) -- show hover
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" }) -- rename
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" }) -- code action
+

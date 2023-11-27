@@ -5,11 +5,6 @@
     ./theme.nix
   ];
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = _: true;
-  };
-
   nix.package = pkgs.nixFlakes;
 
   home = {

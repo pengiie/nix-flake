@@ -15,11 +15,18 @@
       (workspace
         :id {w.id}
         :name {w.name}
-        :active {w.active}
+        :active {w.is_active}
       )
     )
   )
 )
+
+(defwidget clock [time]
+  (box
+    :class "clock"
+    :orientation "h"
+    :spacing 0
+    (label :text time)))
 
 (defwidget status-bar-section [align]
   (box
@@ -32,11 +39,15 @@
   )
 )
 
-(defwidget status-bar [workspaces]
+(defwidget status-bar [workspaces time]
   (box
     :class "status-bar"
     :orientation "h"
     :spacing 0
     (status-bar-section
       :align "start"
-      (workspaces :workspaces workspaces))))
+      (workspaces :workspaces workspaces))
+    (status-bar-section
+      :align "end"
+     (clock :time time))
+    ))

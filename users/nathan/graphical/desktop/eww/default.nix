@@ -12,6 +12,10 @@
   xdg.configFile."eww/eww.yuck".text = ''
     (include "./widgets.yuck")
 
+    (defpoll time :interval "1s" 
+      `TZ="America/Phoenix" date +'%H:%M %p'`)
+
+
     ${lib.concatStrings (lib.imap0 (i: m: ''
       (deflisten ${m.name}-workspaces "hyprland-workspaces ${m.name}")
       (defwindow ${m.name}-status-bar
@@ -26,7 +30,9 @@
           :height "24px"
           :anchor "top center"
         )
-        (status-bar :workspaces ${m.name}-workspaces)) 
+        (status-bar 
+          :workspaces ${m.name}-workspaces
+          :time time)) 
     '') config.host.monitors) }
   '';
 
@@ -36,9 +42,12 @@
     window { background: transparent; }
 
     .status-bar {
+      // Oh yeah daddy
+      font-family: "DaddyTimeMono Nerd Font";
+      padding-right: 16px;
       border-radius: 4px;
+      color: ${config.theme.colors.text.base};
       background-color: ${config.theme.colors.bg.base2};
-      color: ${config.theme.colors.text};
     }
 
     .workspace-group button:first-child {
@@ -62,6 +71,10 @@
       &:hover {
         background-color: ${config.theme.colors.active};
       }
+    }
+
+    .clock {
+      color: ${config.theme.colors.text.accent};
     }
   '';
 }

@@ -1,7 +1,12 @@
-{ config, lib, ... }: {
+{ config, lib, pkgs, ... }: {
+  home.packages = with pkgs; [
+    libva
+  ];
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
+    enableNvidiaPatches = true;
 
     settings = {
       monitor = map (monitor: let
@@ -38,8 +43,16 @@
       };
 
       exec = [
-        # Launch eww status bars
-        "eww daemon & ${lib.concatMapStringsSep " & " (m: "eww open ${m.name}-status-bar") config.host.monitors}"
+        # Reload font cache and launch eww status bars
+        "fc-cache -f; eww kill; eww daemon; ${lib.concatMapStringsSep " & " (m: "eww open ${m.name}-status-bar") config.host.monitors}"
+      ];
+
+      env = [
+        "LIBVA_DRIVER_NAME,nvidia"
+        "XDG_SESSION_TYPE,wayland"
+        "GBM_BACKEND,nvidia-drm"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "WLR_NO_HARDWARE_CURSORS,1"
       ];
 
       bind = ([

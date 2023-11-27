@@ -15,9 +15,15 @@ in {
         type = types.str;
         default = catppuccin.mocha.red;
       };
-      text = mkOption {
-        type = types.str;
-        default = catppuccin.mocha.text;
+      text = {
+        base = mkOption {
+          type = types.str;
+          default = catppuccin.mocha.text;
+        };
+        accent = mkOption {
+          type = types.str;
+          default = catppuccin.mocha.lavender;
+        };
       };
       active = mkOption {
         type = types.str;

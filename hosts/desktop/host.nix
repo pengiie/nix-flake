@@ -6,15 +6,6 @@
     name = "desktop"; 
     monitors = [
       {
-        name = "DP-1";
-        resolution.width = 2560;
-        resolution.height = 1440;
-        refreshRate = 144;
-        position.x = 1920;
-        position.y = 0;
-        scale = 1.0;
-      }
-      {
         name = "DP-2";
         resolution.width = 1920;
         resolution.height = 1080;
@@ -23,6 +14,16 @@
         position.y = 0;
         scale = 1.0;
       }
+      {
+        name = "DP-3";
+        resolution.width = 2560;
+        resolution.height = 1440;
+        refreshRate = 144;
+        position.x = 1920;
+        position.y = 0;
+        scale = 1.0;
+      }
+
     ];
   };
 }

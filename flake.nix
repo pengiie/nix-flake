@@ -18,7 +18,13 @@
   }@inputs: let
     cutil = import ./utils { inherit inputs; lib = nixpkgs.lib; };
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs { 
+      inherit system; 
+      config = {
+        allowUnfree = true;
+        allowUnfreePredicate =  _: true;
+      };
+    };
 
     mkSystem = modules: nixpkgs.lib.nixosSystem {
       inherit pkgs system;

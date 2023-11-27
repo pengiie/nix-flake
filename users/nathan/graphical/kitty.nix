@@ -6,13 +6,23 @@
     shellIntegration.enableZshIntegration = true;
 
     keybindings = {
-      "alt+t" = "new_tab";
+      # tab management
       "alt+n" = "new_tab_with_cwd";
       "alt+q" = "close_tab";
+
+      # movements
       "alt+l" = "next_tab";
       "alt+h" = "previous_tab";
+      "alt+shift+l" = "move_tab_forward";
+      "alt+shift+h" = "move_tab_backward";
       "alt+tab" = "next_tab";
       "alt+shift+tab" = "previous_tab";
+
+      # map alt+jk to arrow keys
+      "alt+j" = "send_text all \\x1b[B";
+      "alt+k" = "send_text all \\x1b[A";
+
+      # clipboard
       "ctrl+shift+c" = "copy_to_clipboard";
       "ctrl+shift+v" = "paste_from_clipboard";
     };
