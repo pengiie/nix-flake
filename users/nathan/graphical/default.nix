@@ -5,6 +5,7 @@
     ./discord.nix
     ./kitty.nix
     ./theming.nix
+    ./obs.nix
   ];
 
   home.packages = with pkgs; [
@@ -13,5 +14,6 @@
     blueberry
     pavucontrol
     obsidian
+    vlc
   ];
 }

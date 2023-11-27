@@ -23,7 +23,6 @@
         position.y = 0;
         scale = 1.0;
       }
-
     ];
   };
 }
