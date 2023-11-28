@@ -46,6 +46,7 @@
     git
     wget
     curl
+    networkmanagerapplet
   ];
 
   # Htop, the task manager of linux kinda
