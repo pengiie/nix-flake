@@ -14,6 +14,10 @@
       bibata-cursors
       
       # Fonts
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      liberation_ttf
       (pkgs.nerdfonts.override { fonts = [ 
         "FiraCode"
         "DaddyTimeMono"

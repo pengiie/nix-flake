@@ -15,5 +15,6 @@
     pavucontrol
     obsidian
     vlc
+    cinnamon.nemo
   ];
 }

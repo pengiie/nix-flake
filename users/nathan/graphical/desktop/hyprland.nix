@@ -6,7 +6,7 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    enableNvidiaPatches = true;
+    enableNvidiaPatches = config.host.nvidia;
 
     settings = {
       monitor = map (monitor: let
@@ -47,13 +47,13 @@
         "fc-cache -f; eww kill; eww daemon; ${lib.concatMapStringsSep " & " (m: "eww open ${m.name}-status-bar") config.host.monitors}"
       ];
 
-      env = [
+      env = (if config.host.nvidia then [
         "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
         "GBM_BACKEND,nvidia-drm"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "WLR_NO_HARDWARE_CURSORS,1"
-      ];
+      ] else []);
 
       bind = ([
         ## Hyprland
@@ -98,12 +98,13 @@
         ## Quick Apps
         "SUPER, Return, exec, kitty"
         "ALT, Space, exec, wofi"
-      # If on laptop, add brightness controls with light cli tool
-      ]) ++ (if config.host.name == "laptop" then
-        [",XF86MonBrightnessUp, exec, light -A 5%" ",XF86MonBrightnessDown, exec, light -U 5%"] 
-      else 
-        []
-      );
+      ]) ++ (if config.host.laptop then [
+        ## Laptop Specific
+
+        ## Brightness
+        ",XF86MonBrightnessUp, exec, light -A 5%"
+        ",XF86MonBrightnessDown, exec, light -U 5%"
+      ] else []);
     };
   };
 }

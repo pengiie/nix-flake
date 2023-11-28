@@ -4,6 +4,7 @@
    # Setting the host name option defined in ../common/host.nix
   host = {
     name = "desktop"; 
+    nvidia = true;
     monitors = [
       {
         name = "DP-2";

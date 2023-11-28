@@ -4,6 +4,7 @@
    # Setting the host name option defined in ../common/host.nix
   host = {
     name = "laptop"; 
+    laptop = true;
     monitors = [
       {
         name = "eDP-1";
