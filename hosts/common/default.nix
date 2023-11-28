@@ -1,4 +1,8 @@
 { config, pkgs, ... }: {
+  imports = [
+    ./firewall.nix
+  ];
+
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
   };
@@ -15,7 +19,6 @@
   # Networking
   networking.hostName = "nathan-${config.host.name}";
   networking.networkmanager.enable = true;
-  networking.firewall.enable = false;
 
   # Locale
   time.timeZone = "America/Arizona";

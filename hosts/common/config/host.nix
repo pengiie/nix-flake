@@ -23,6 +23,11 @@ in {
         default = false;
         description = "Whether the current machine is a laptop.";
       };
+      extraAllowedTCPPorts = mkOption {
+        type = types.listOf types.int;
+        default = [];
+        description = "Extra TCP ports to allow in the firewall.";
+      };
     };
   };
 }

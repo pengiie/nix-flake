@@ -3,7 +3,7 @@
     ../common
 
     ./hardware.nix
-    ./host.nix
+    ./config.nix
     ./nvidia.nix
   ];
 

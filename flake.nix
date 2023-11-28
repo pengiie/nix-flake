@@ -44,8 +44,8 @@
     };
 
     homeConfigurations = {
-      nathan-desktop = mkUser [ ./hosts/desktop/host.nix ./users/nathan ]; 
-      nathan-laptop = mkUser [ ./hosts/laptop/host.nix ./users/nathan ];
+      nathan-desktop = mkUser [ ./hosts/desktop/config.nix ./users/nathan ]; 
+      nathan-laptop = mkUser [ ./hosts/laptop/config.nix ./users/nathan ];
     };
   };
 }

@@ -1,5 +1,5 @@
 { ... }: {
-  imports = [ ../common/host.nix ];
+  imports = [ ../common/config/host.nix ];
 
    # Setting the host name option defined in ../common/host.nix
   host = {

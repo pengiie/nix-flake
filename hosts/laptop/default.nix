@@ -3,7 +3,7 @@
     ../common
 
     ./hardware.nix
-    ./host.nix
+    ./config.nix
   ];
 
   # "light" cli tool to control laptop screen brightness

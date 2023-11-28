@@ -1,10 +1,11 @@
 { ... }: {
-  imports = [ ../common/host.nix ];
+  imports = [ ../common/config/host.nix ];
 
    # Setting the host name option defined in ../common/host.nix
   host = {
     name = "desktop"; 
     nvidia = true;
+    extraAllowedTCPPorts = [ 22 ];
     monitors = [
       {
         name = "DP-2";
