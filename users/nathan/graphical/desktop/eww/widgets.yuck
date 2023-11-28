@@ -21,6 +21,27 @@
   )
 )
 
+(defwidget system-cluster [time battery]
+  (box
+    :class "system-cluster"
+    :orientation "h"
+    :spacing 0
+    (battery 
+      :percentage {EWW_BATTERY.BAT1.capacity} 
+      :charging {EWW_BATTERY.BAT1.status == 'Charging'})
+    (clock :time time)
+  )
+)
+
+(defwidget battery [percentage charging]
+  (box
+    :class "battery"
+    :orientation "h"
+    :spacing 0
+    (label :text {charging ? "${percentage}🗲" : "${percentage}%"})
+  )
+)
+
 (defwidget clock [time]
   (box
     :class "clock"
@@ -39,7 +60,7 @@
   )
 )
 
-(defwidget status-bar [workspaces time]
+(defwidget status-bar [workspaces time battery]
   (box
     :class "status-bar"
     :orientation "h"
@@ -49,5 +70,5 @@
       (workspaces :workspaces workspaces))
     (status-bar-section
       :align "end"
-     (clock :time time))
+      (system-cluster :time time :battery battery))
     ))

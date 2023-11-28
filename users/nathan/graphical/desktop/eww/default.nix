@@ -32,7 +32,8 @@
         )
         (status-bar 
           :workspaces ${m.name}-workspaces
-          :time time)) 
+          :time time
+          :battery ${toString config.host.laptop})) 
     '') config.host.monitors) }
   '';
 
@@ -73,7 +74,7 @@
       }
     }
 
-    .clock {
+    .system-cluster {
       color: ${config.theme.colors.text.accent};
     }
   '';
