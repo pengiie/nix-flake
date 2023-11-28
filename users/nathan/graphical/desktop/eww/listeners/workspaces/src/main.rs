@@ -57,7 +57,7 @@ fn print_workspace_info(monitor: &String) {
         let mut parsed_workspaces = Vec::new();
         let mut last_workspace_name = String::new();
         for (i, workspace) in split.enumerate() {
-            let workspace = workspace.trim();
+            let mut workspace = workspace.trim();
             if workspace.len() > 0 && workspace.contains("monitorID") {
                 let mut lines = workspace.lines();
                 let id = i as u32; // Workspaces start from 1.
@@ -69,18 +69,27 @@ fn print_workspace_info(monitor: &String) {
                     is_active: false,
                 });
 
-                let b = workspace.find("(");
+                // Find last set of () and use that as the name
+                while workspace.find("(").is_some() {
+                    let b = workspace.find("(").unwrap();
+                    workspace = &workspace[b+1..];
+                }
                 let e = workspace.find(")");
-                if b.is_none() || e.is_none() {
+
+                if e.is_none() {
                     continue;
                 }
 
-                let name = workspace[b.unwrap()+1..e.unwrap()].to_string();
+                let name = workspace[0..e.unwrap()].to_string();
                 last_workspace_name = name;
             } else if workspace.len() > 0 {
-                let b = workspace.find("(").unwrap();
+                // Find last set of () and use that as the name
+                while workspace.find("(").is_some() {
+                    let b = workspace.find("(").unwrap();
+                    workspace = &workspace[b+1..];
+                }
                 let e = workspace.find(")").unwrap();
-                let name = workspace[b+1..e].to_string();
+                let name = workspace[0..e].to_string();
                 last_workspace_name = name;
             }
         }
