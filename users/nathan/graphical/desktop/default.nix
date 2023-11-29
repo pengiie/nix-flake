@@ -15,5 +15,7 @@
 
     # Color picker
     hyprpicker
+
+    waypipe
   ];
 }
