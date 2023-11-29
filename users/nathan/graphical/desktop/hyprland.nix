@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }: {
   home.packages = with pkgs; [
     libva
+    libsForQt5.qt5.qtwayland
+    qt6.qtwayland
   ];
 
   wayland.windowManager.hyprland = {

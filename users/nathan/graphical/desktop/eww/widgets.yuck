@@ -28,7 +28,8 @@
     :spacing 0
     (battery 
       :percentage {EWW_BATTERY.BAT1.capacity} 
-      :charging {EWW_BATTERY.BAT1.status == 'Charging'})
+      :charging {EWW_BATTERY.BAT1.status == 'Charging'}
+      :visible battery)
     (clock :time time)
   )
 )

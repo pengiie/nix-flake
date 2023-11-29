@@ -16,5 +16,7 @@
     obsidian
     vlc
     cinnamon.nemo
+    wireshark
+    libsForQt5.polkit-kde-agent
   ];
 }
