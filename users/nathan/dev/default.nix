@@ -14,9 +14,7 @@
     cargo
     clang
     clangStdenv
-    shaderc
     python3
     vscode
-    vulkan-tools
   ];
 }

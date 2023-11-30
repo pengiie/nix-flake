@@ -72,7 +72,7 @@
     enable = true;
     powerOnBoot = true;
     settings.General.ControllerMode = "bredr";
-    settings.Policy.ReconnectAttemps=0;
+    settings.Policy.ReconnectAttempts=0;
   };
 
 }

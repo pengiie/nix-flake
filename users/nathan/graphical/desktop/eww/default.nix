@@ -33,7 +33,7 @@
         (status-bar 
           :workspaces ${m.name}-workspaces
           :time time
-          :battery ${toString config.host.laptop})) 
+          :battery ${if config.host.laptop then "true" else "false"})) 
     '') config.host.monitors) }
   '';
 

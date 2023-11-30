@@ -17,5 +17,8 @@
     hyprpicker
 
     waypipe
+
+    pipewire
+    wireplumber
   ];
 }
