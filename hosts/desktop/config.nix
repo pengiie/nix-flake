@@ -6,6 +6,7 @@
     name = "desktop"; 
     nvidia = true;
     extraAllowedTCPPorts = [ 22 ];
+    wallpaper = true;
     monitors = [
       {
         name = "DP-2";

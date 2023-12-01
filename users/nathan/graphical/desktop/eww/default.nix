@@ -40,15 +40,16 @@
   xdg.configFile."eww/eww.scss".text = ''
     * { all: unset; }
 
-    window { background: transparent; }
-
     .status-bar {
       // Oh yeah daddy
       font-family: "DaddyTimeMono Nerd Font";
-      padding-right: 16px;
       border-radius: 4px;
       color: ${config.theme.colors.text.base};
-      background-color: ${config.theme.colors.bg.base2};
+
+      ${if !config.host.wallpaper then ''
+        background-color: ${config.theme.colors.bg.base2};
+        padding-right: 16px;
+      '' else ""}
     }
 
     .workspace-group button:first-child {

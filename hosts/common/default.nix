@@ -24,17 +24,13 @@
   time.timeZone = "America/Arizona";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # Sound
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
   # DConf settings
   programs.dconf.enable = true;
 
   # Users
   users.users.nathan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
 
     # Set the user shell to zsh
     shell = pkgs.zsh;
@@ -59,13 +55,20 @@
   hardware.opengl.enable = true;
 
   # XDG portal support
-  #xdg.portal = {
-  #  enable = true;
-  #  extraPortals = with pkgs; [
-  #    xdg-desktop-portal
-  #    xdg-desktop-portal-hyprland
-  #  ];
-  #};
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+    ];
+  };
+
+  # Pipewire support
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    pulse.enable = true;
+  };
 
   # Bluetooth
   hardware.bluetooth = {

@@ -3,6 +3,7 @@
     libva
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
+    xwaylandvideobridge
   ];
 
   wayland.windowManager.hyprland = {
@@ -44,10 +45,20 @@
         rounding = 8;
       };
 
-      exec = [
+      misc = {
+        disable_hyprland_logo = true;
+        disable_splash_rendering = true;
+      };
+
+      exec = ([
         # Reload font cache and launch eww status bars
         "fc-cache -f; eww kill; eww daemon; ${lib.concatMapStringsSep " & " (m: "eww open ${m.name}-status-bar") config.host.monitors}"
-      ];
+      ] ++ 
+        (if config.host.wallpaper then [
+          ## On non-laptop devices, run sww for wallpapers
+          "swww kill; swww init; random-wallpaper"
+        ] else [])
+      );
 
       env = (if config.host.nvidia then [
         "LIBVA_DRIVER_NAME,nvidia"
@@ -99,7 +110,7 @@
 
         ## Quick Apps
         "SUPER, Return, exec, kitty"
-        "ALT, Space, exec, wofi"
+        "ALT, Space, exec, rofi -show drun"
       ]) ++ (if config.host.laptop then [
         ## Laptop Specific
 
@@ -107,6 +118,17 @@
         ",XF86MonBrightnessUp, exec, light -A 5%"
         ",XF86MonBrightnessDown, exec, light -U 5%"
       ] else []);
+    
+      windowrulev2 = [
+        "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
+        "noanim,class:^(xwaylandvideobridge)$"
+        "nofocus,class:^(xwaylandvideobridge)$"
+        "noinitialfocus,class:^(xwaylandvideobridge)$"
+      ];
+
+      layerrule = [ 
+        "noanim,rofi"
+      ];
     };
   };
 }

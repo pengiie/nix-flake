@@ -3,22 +3,14 @@
     ./eww
 
     ./hyprland.nix
-    ./wofi.nix
+    ./rofi
+    ./swww.nix
   ];
 
   home.packages = with pkgs; [
-    # Wayland clipboard
     wl-clipboard
-
-    # Media control cli
     playerctl
-
-    # Color picker
     hyprpicker
-
     waypipe
-
-    pipewire
-    wireplumber
   ];
 }

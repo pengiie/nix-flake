@@ -23,3 +23,17 @@ opt.ignorecase = true -- ignore case for searches
 opt.smartcase = true -- be smart about ignoring case
 
 opt.termguicolors = true -- enable the good colors
+
+vim.cmd("highlight Normal guibg=none") -- transparent background
+
+opt.cmdheight = 0;
+vim.api.nvim_create_autocmd({ "RecordingEnter" }, {
+  callback = function()
+    vim.cmd("set cmdheight=1")
+  end
+})
+vim.api.nvim_create_autocmd({ "RecordingLeave" }, {
+  callback = function()
+    vim.cmd("set cmdheight=0")
+  end
+})

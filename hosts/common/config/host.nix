@@ -23,6 +23,11 @@ in {
         default = false;
         description = "Whether the current machine is a laptop.";
       };
+      wallpaper = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Whether the current machine should use wallpapers.";
+      };
       extraAllowedTCPPorts = mkOption {
         type = types.listOf types.int;
         default = [];
