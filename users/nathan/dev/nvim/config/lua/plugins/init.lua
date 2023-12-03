@@ -61,7 +61,7 @@ local general = {
       return require("plugins.configs.bufferline")
     end,
     config = function(_, opts)
-      require("bufferline").setup(opts)
+      -- require("bufferline").setup(opts)
     end
   },
 

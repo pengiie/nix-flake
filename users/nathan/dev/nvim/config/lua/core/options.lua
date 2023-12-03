@@ -16,24 +16,10 @@ opt.tabstop = 2 -- what a tab in a file means to nvim
 opt.softtabstop = 2 -- when i click tab, this is how many spaces
 
 -- line number
-opt.number = true -- use relative line numbers (get lost in the sauce)
+opt.number = true -- show line numbers
 opt.numberwidth = 2 -- line number is 2 width
 
 opt.ignorecase = true -- ignore case for searches
 opt.smartcase = true -- be smart about ignoring case
 
 opt.termguicolors = true -- enable the good colors
-
-vim.cmd("highlight Normal guibg=none") -- transparent background
-
-opt.cmdheight = 0;
-vim.api.nvim_create_autocmd({ "RecordingEnter" }, {
-  callback = function()
-    vim.cmd("set cmdheight=1")
-  end
-})
-vim.api.nvim_create_autocmd({ "RecordingLeave" }, {
-  callback = function()
-    vim.cmd("set cmdheight=0")
-  end
-})

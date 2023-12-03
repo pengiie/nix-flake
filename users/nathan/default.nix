@@ -7,6 +7,7 @@
   ./graphical
   ./overlays
 
+  ./spotify.nix
   ./zsh.nix
   ];
 
@@ -18,6 +19,6 @@
   home.sessionVariables = {
     TERM = "kitty";
     EDITOR = "nvim";
-    BROWSER = "google-chrome";
+    BROWSER = "google-chrome-stable";
   };
 }

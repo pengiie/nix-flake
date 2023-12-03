@@ -55,9 +55,12 @@
         "fc-cache -f; eww kill; eww daemon; ${lib.concatMapStringsSep " & " (m: "eww open ${m.name}-status-bar") config.host.monitors}"
       ] ++ 
         (if config.host.wallpaper then [
-          ## On non-laptop devices, run sww for wallpapers
+          ## On non-laptop devices, run swww for wallpapers
           "swww kill; swww init; random-wallpaper"
-        ] else [])
+        ] else [
+          ## On laptop devices, ensure swww is not running
+          "swww kill"
+        ])
       );
 
       env = (if config.host.nvidia then [
@@ -101,8 +104,8 @@
         "SUPER, W, swapactiveworkspaces, ${config.host.desktop.quickSwap.left} ${config.host.desktop.quickSwap.right}"
 
         ## System
-        ",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +2%"
-        ",XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -2%"
+        ",XF86AudioRaiseVolume, exec, pamixer -i 2"
+        ",XF86AudioLowerVolume, exec, pamixer -d 2"
         ",XF86AudioMute, exec, amixer ssset 'Master' toggle"
         ",XF86AudioPlay, exec, playerctl play-pause"
         ",XF86AudioNext, exec, playerctl next"

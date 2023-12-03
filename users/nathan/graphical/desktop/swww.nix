@@ -1,6 +1,6 @@
 { config, pkgs, ... }: {
-  home.packages = if config.host.wallpaper then (with pkgs; [
+  home.packages = with pkgs; [
     swww
     (import ./scripts/random-wallpaper.nix { inherit pkgs; })
-  ]) else [];
+  ];
 }

@@ -9,9 +9,6 @@
     gnumake
     cmake
     nodejs_20
-    rustc
-    rust-analyzer
-    cargo
     clang
     clangStdenv
     python3

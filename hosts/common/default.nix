@@ -43,6 +43,8 @@
     wget
     curl
     networkmanagerapplet
+    pamixer
+    xdg-utils
   ];
 
   # Htop, the task manager of linux kinda
@@ -57,6 +59,7 @@
   # XDG portal support
   xdg.portal = {
     enable = true;
+    xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-hyprland
     ];
