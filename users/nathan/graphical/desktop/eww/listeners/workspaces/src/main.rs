@@ -25,6 +25,11 @@ fn main() {
     });
 
     let monitor = args.monitor.clone();
+    event_listener.add_workspace_moved_handler(move |_| {
+        print_workspace_info(&monitor);
+    });
+
+    let monitor = args.monitor.clone();
     event_listener.add_active_monitor_change_handler(move |_| {
         print_workspace_info(&monitor);
     });
