@@ -24,8 +24,27 @@ vim.keymap.set("n", "<C-k>", "<C-w>k") -- move up
 vim.keymap.set("n", "<C-l>", "<C-w>l") -- move right
 
 -- window management
-vim.keymap.set("n", "<leader>q", ":q<CR>") -- quit
+vim.keymap.set("n", "<leader>q", ":qq<CR>") -- quit
 vim.keymap.set("n", "<leader>Q", ":qa<CR>") -- quit all
+
+-- diagnostics
+
+vim.keymap.set("n", "<leader>dd", function() -- see document diagnostics
+  require("trouble").toggle("document_diagnostics")
+end)
+vim.keymap.set("n", "<leader>dw", function() -- see workspace diagnostics
+  require("trouble").toggle({ mode = "workspace_diagnostics" })
+end)
+vim.keymap.set("n", "<leader>dl", function() -- see loclist diagnostics
+  require("trouble").toggle({ mode = "loclist" })
+end)
+
+vim.keymap.set("n", "<leader>dn", function() -- go to next diagnostic
+  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+end)
+vim.keymap.set("n", "<leader>dN", function() -- go to previous diagnostic
+  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end)
 
 -- bufferline tabs
 -- local bufferline = require("bufferline")

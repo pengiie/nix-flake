@@ -109,6 +109,13 @@ local general = {
       require("colorizer").setup()
     end,
   },
+
+  -- diagnostics
+  {
+    "folke/trouble.nvim",
+    lazy = false,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  }
 }
 
 local plugins = {};
