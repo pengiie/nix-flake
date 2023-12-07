@@ -1,5 +1,5 @@
 # Configuration specifying a home manager user environment.
-{ ... }: {
+{ pkgs, ... }: {
   imports = [
   ../common
 
@@ -21,4 +21,8 @@
     EDITOR = "nvim";
     BROWSER = "google-chrome-stable";
   };
+
+  home.packages = with pkgs; [
+    hueadm
+  ];
 }

@@ -24,7 +24,7 @@ vim.keymap.set("n", "<C-k>", "<C-w>k") -- move up
 vim.keymap.set("n", "<C-l>", "<C-w>l") -- move right
 
 -- window management
-vim.keymap.set("n", "<leader>q", ":qq<CR>") -- quit
+vim.keymap.set("n", "<leader>q", ":q<CR>") -- quit
 vim.keymap.set("n", "<leader>Q", ":qa<CR>") -- quit all
 
 -- diagnostics
@@ -74,8 +74,9 @@ end)
 -- vim.keymap.set("n", "<TAB>", function() bufferline.cycle(1) end) -- cycle tab right
 -- vim.keymap.set("n", "<S-TAB>", function() bufferline.cycle(-1) end) -- cycle tab left
 
--- "programs"::
+-- misc 
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file tree
+vim.keymap.set("n", "<leader>fe", ":NvimTreeFindFile<CR>") -- find file in file tree
 vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Find Files" }) -- find files
 vim.keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "Live Grep" }) -- live grep
 
