@@ -1,20 +1,21 @@
 { config, lib, pkgs, ... }: 
   pkgs.writeShellScriptBin "minimal-mode" ''
+    ACTIVE_WORKSPACE_ID=$(hyprctl activeworkspace | awk 'NR==1{print $3}')
+    ACTIVE_WORKSPACE_MONITOR=$(hyprctl activeworkspace | awk 'NR==1{print $7}' | sed -e "s/://")
     if [ "$1" == "toggle" ]; then
-      MINIMAL_MODE=$(hyprctl getoption general:gaps_in | awk 'NR==2{print $2}')
-      if [ "$MINIMAL_MODE" = "0" ]; then
+      MINIMAL_MODE=$(hyprctl workspacerules | sed -n "/Workspace rule $ACTIVE_WORKSPACE_ID:/,/Workspace rule [0-9]\+:/ p" | awk 'NR==5{print $2}')
+      if [ "$MINIMAL_MODE" == "0" ]; then
         minimal-mode false
       else
         minimal-mode true
       fi
     elif [ "$1" == "true" ]; then
       echo "Enabling minimal desktop."
-      eww kill
-      hyprctl --batch "keyword general:gaps_in 0; keyword general:gaps_out 0; keyword decoration:rounding 0;"
-    else
+      eww close $ACTIVE_WORKSPACE_MONITOR-status-bar
+      hyprctl keyword workspace $ACTIVE_WORKSPACE_ID,rounding:false,gapsin:0,gapsout:0
+    elif [ "$1" == "false" ]; then
       echo "Disabling minimal desktop."
-      eww daemon &&
-      ${lib.concatMapStringsSep " & " (m: "eww open ${m.name}-status-bar") config.host.monitors} &
-      hyprctl --batch "keyword general:gaps_in ${toString config.theme.spacing.margins.desktop}; keyword general:gaps_out ${toString config.theme.spacing.margins.desktop}; keyword decoration:rounding 8;"
+      eww open $ACTIVE_WORKSPACE_MONITOR-status-bar
+      hyprctl keyword workspace $ACTIVE_WORKSPACE_ID,
     fi
   ''
