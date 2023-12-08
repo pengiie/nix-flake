@@ -1,4 +1,8 @@
 { pkgs, ... }: {
+  home.packages = with pkgs; [
+    # adb for droidcam plugin
+    android-tools
+  ];
   programs.obs-studio = {
     enable = true;
     plugins = [
