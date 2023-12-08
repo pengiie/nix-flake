@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ./eww
+    ./scripts
 
     ./hyprland.nix
     ./rofi

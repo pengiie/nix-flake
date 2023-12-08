@@ -116,6 +116,9 @@
         ",XF86AudioNext, exec, playerctl next"
         ",XF86AudioPrev, exec, playerctl previous"
 
+        ## Modes
+        "SUPER, M, exec, minimal-mode toggle"
+
         ## Quick Apps
         "SUPER, Return, exec, kitty"
         "ALT, Space, exec, rofi -show drun"
