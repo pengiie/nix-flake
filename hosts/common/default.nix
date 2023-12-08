@@ -33,7 +33,7 @@
   networking.networkmanager.enable = true;
 
   # Locale
-  time.timeZone = "America/Arizona";
+  time.timeZone = "America/Phoenix";
   i18n.defaultLocale = "en_US.UTF-8";
 
   # DConf settings
