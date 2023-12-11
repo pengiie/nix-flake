@@ -11,6 +11,7 @@
       upuser = "home-manager switch --flake /home/nathan/flake#${config.user.name}-${config.host.name}";
       apc = "bluetoothctl connect EC:73:79:35:26:BD";
       apd = "bluetoothctl disconnect EC:73:79:35:26:BD";
+      dva = "echo \"use flake\" >> .envrc && direnv allow";
     };
   };
 
