@@ -8,33 +8,39 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    browser-previews = {
+      url = "github:r-k-b/browser-previews";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixpkgs, 
     homeManager,
     nixos-hardware,
+    browser-previews,
     ...
   }@inputs: let
     cutil = import ./utils { inherit inputs; lib = nixpkgs.lib; };
     system = "x86_64-linux";
-    pkgs = import nixpkgs { 
-      inherit system; 
-      config = {
-        allowUnfree = true;
-        allowUnfreePredicate =  _: true;
-      };
-    };
+    pkgs = nixpkgs.legacyPackages.${system};
 
     mkSystem = modules: nixpkgs.lib.nixosSystem {
-      inherit pkgs system;
+      inherit system;
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+          allowUnfreePredicate = _: true;
+        };
+      };
       specialArgs = { inherit inputs cutil; };
       modules = modules;
     };
 
     mkUser = modules: homeManager.lib.homeManagerConfiguration {
       inherit pkgs;
-      extraSpecialArgs = { inherit inputs cutil; };
+      extraSpecialArgs = { inherit inputs cutil system; };
       modules = modules;
     };
   in {

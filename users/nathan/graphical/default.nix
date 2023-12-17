@@ -10,7 +10,8 @@
 
   home.packages = with pkgs; [
     discord
-    google-chrome
+    firefox-beta
+    google-chrome-dev
     blueberry
     pavucontrol
     obsidian
@@ -19,5 +20,9 @@
     wireshark
     libsForQt5.polkit-kde-agent
     krita
+    musescore
+    audacity
+    libreoffice
+    prismlauncher
   ];
 }

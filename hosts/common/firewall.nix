@@ -5,5 +5,6 @@
     # HTTP Ports
     80 
     443
+    25565
   ] ++ config.host.extraAllowedTCPPorts;
 }

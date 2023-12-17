@@ -68,6 +68,10 @@
 
   # Enable OpenGL support
   hardware.opengl.enable = true;
+  hardware.opengl.driSupport = true;
+
+  # Hyprland
+  programs.hyprland.enable = true;
 
   # XDG portal support
   xdg.portal = {

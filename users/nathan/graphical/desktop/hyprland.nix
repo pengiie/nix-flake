@@ -9,7 +9,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    enableNvidiaPatches = config.host.nvidia;
 
     settings = {
       monitor = map (monitor: let
