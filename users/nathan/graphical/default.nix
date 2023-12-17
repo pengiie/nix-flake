@@ -12,6 +12,7 @@
     discord
     firefox-beta
     google-chrome-dev
+    google-chrome
     blueberry
     pavucontrol
     obsidian
