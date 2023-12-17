@@ -8,7 +8,7 @@
     
     shellAliases = {
       up = "sudo nixos-rebuild switch --flake /home/nathan/flake#${config.host.name}";
-      upuser = "NIXPKGS_ALLOW_UNFREE=1 home-manager switch --flake /home/nathan/flake#${config.user.name}-${config.host.name} --impure";
+      upuser = "NIXPKGS_ALLOW_UNFREE=1; home-manager switch --flake /home/nathan/flake#${config.user.name}-${config.host.name} --impure";
       apc = "bluetoothctl connect EC:73:79:35:26:BD";
       apd = "bluetoothctl disconnect EC:73:79:35:26:BD";
       dva = "echo \"use flake\" >> .envrc && direnv allow";
