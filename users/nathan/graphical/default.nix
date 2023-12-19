@@ -25,5 +25,7 @@
     audacity
     libreoffice
     prismlauncher
+    lmms
+    gimp
   ];
 }

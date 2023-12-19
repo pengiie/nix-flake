@@ -4,6 +4,8 @@
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
     xwaylandvideobridge
+    grim
+    slurp
   ];
 
   wayland.windowManager.hyprland = {
@@ -121,6 +123,7 @@
         ## Quick Apps
         "SUPER, Return, exec, kitty"
         "ALT, Space, exec, rofi -show drun"
+        ", Print, exec, grim -g \"\$(slurp)\" - | wl-copy"
       ]) ++ (if config.host.laptop then [
         ## Laptop Specific
 
