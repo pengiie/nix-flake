@@ -93,6 +93,7 @@
         "SUPER_SHIFT, K, movewindow, u"
         "SUPER_SHIFT, L, movewindow, r"
         "SUPER, F, fullscreen"
+        "SUPER, Minus, togglefloating"
 
         ## Window workspace
         "SUPER, 1, workspace, 1"

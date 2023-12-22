@@ -15,7 +15,6 @@
     google-chrome
     blueberry
     pavucontrol
-    obsidian
     vlc
     cinnamon.nemo
     wireshark

@@ -14,5 +14,7 @@
     clangStdenv
     python3
     vscode
+    yarn
+    nodejs
   ];
 }

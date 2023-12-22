@@ -28,10 +28,23 @@
 
   fonts.fontconfig.enable = true;
 
-  gtk = {
+  gtk = rec {
     enable = true;
+    theme = {
+      name = "Catppuccin-Mocha-Compact-Pink-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "pink" ];
+        size = "compact";
+        tweaks = [ "rimless" ];
+        variant = "mocha";
+      };
+    };
+    gtk2.extraConfig = ''
+      gtk-application-prefer-dark-theme=1
+    '';
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = 1;
     };
+    gtk4.extraConfig = gtk3.extraConfig; 
   };
 }

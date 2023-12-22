@@ -4,6 +4,8 @@
 
     # LSPs
     nixd
+
+    vimPlugins.markdown-preview-nvim
   ];
 
   home.file.".config/nvim/" = {

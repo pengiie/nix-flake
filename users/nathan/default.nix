@@ -19,6 +19,7 @@
   home.sessionVariables = {
     TERM = "kitty";
     EDITOR = "nvim";
+    DEFAULT_BROWSER = "google-chrome-stable";
   };
 
   home.packages = with pkgs; [
