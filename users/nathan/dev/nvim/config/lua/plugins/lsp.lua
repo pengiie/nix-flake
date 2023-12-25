@@ -104,6 +104,12 @@ local lsps = {
     lazy = true,
     ft = "yuck",
   },
+
+  -- wgsl
+  {
+    "wgsl-analyzer/wgsl-analyzer",
+    lazy = false,
+  }
 }
 
 return lsps

@@ -23,7 +23,8 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-require("lspconfig").rust_analyzer.setup {
+local lspconfig = require("lspconfig")
+lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "rust" },
@@ -34,8 +35,14 @@ require("lspconfig").rust_analyzer.setup {
   },
 }
 
-require("lspconfig").nixd.setup {
+lspconfig.nixd.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = { "nix" },
+}
+
+lspconfig.wgsl_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "wgsl" },
 }

@@ -18,3 +18,4 @@ require "plugins"
 -- Load config after plugins are loaded.
 require "core.options"
 require "core.mappings"
+require "core.filetypes"
