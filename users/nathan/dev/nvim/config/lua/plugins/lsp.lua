@@ -11,7 +11,7 @@ local lsps = {
           return require("plugins.configs.null-ls")
         end,
         config = function(_, opts)
-          require("null-ls").setup(opts)
+          require("null-ls").setup({})
         end,
       },
 

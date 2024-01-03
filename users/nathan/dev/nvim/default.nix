@@ -2,8 +2,16 @@
   home.packages = with pkgs; [
     neovim 
 
-    # LSPs
+    # LSP/Helpers
     nixd
+    stylua
+    rustywind
+    tailwindcss-language-server
+    lua-language-server
+    vscode-langservers-extracted
+    # "its so over" - ThePrimeagen
+    (import ./htmx-lsp { inherit pkgs; })
+
 
     vimPlugins.markdown-preview-nvim
   ];

@@ -82,6 +82,8 @@
         "SUPER, R, exec, hyprctl reload" # reload hyprland
         "SUPER, Q, killactive" # kill active window
         "SUPER, Escape, exit" # exit hyprland
+        "SUPER_SHIFT, P, exec, hyprctl keyword env WLR_NO_HARDWARE_CURSORS,1" # disable hardware cursors
+        "SUPER_SHIFT, O, exec, hyprctl keyword env WLR_NO_HARDWARE_CURSORS,0" # enable hardware cursors
 
         ## Window Management
         "SUPER, H, movefocus, l"

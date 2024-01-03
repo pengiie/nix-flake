@@ -69,18 +69,13 @@
   # Enable OpenGL support
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
+  hardware.opengl.extraPackages = with pkgs; [
+    vaapiVdpau
+    libvdpau-va-gl
+  ];
 
-  # Hyprland
+  # Hyprland ( Enables other necessary components )
   programs.hyprland.enable = true;
-
-  # XDG portal support
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-hyprland
-    ];
-  };
 
   # Pipewire support
   security.rtkit.enable = true;
