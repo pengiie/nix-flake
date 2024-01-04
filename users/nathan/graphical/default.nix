@@ -9,8 +9,8 @@
   ];
 
   home.packages = with pkgs; [
+    floorp # this is the browser i actuallly use 
     discord
-    firefox-beta
     google-chrome-dev
     google-chrome
     blueberry
