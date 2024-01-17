@@ -16,5 +16,6 @@
     vscode
     yarn
     nodejs
+    renderdoc
   ];
 }

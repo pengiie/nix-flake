@@ -14,6 +14,8 @@
       dva = "echo \"use flake\" >> .envrc && direnv allow";
       notes = "cd /home/nathan/vaults/notes/";
       paratym = "cd /home/nathan/dev/paratym/";
+      gcnix = "nix-env --delete-generations 7d; nix-store --gc";
+      wuser = "cd /mnt/windows/Users/nathan/";
     };
   };
 

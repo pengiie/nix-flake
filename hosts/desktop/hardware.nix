@@ -8,6 +8,7 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
+  boot.supportedFilesystems = [ "ntfs" ];
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
@@ -22,6 +23,10 @@
     { device = "/dev/disk/by-uuid/F3E5-1FFD";
       fsType = "vfat";
     };
+  fileSystems."/mnt/windows" = {
+    device = "/dev/disk/by-uuid/3492A1B992A1804A";
+    fsType = "ntfs";
+  };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/936331ae-570a-4e37-9ba6-8f61be25cdc4"; }

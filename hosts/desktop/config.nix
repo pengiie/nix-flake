@@ -9,7 +9,7 @@
     wallpaper = false;
     monitors = [
       {
-        name = "DP-2";
+        name = "HDMI-A-1";
         resolution.width = 1920;
         resolution.height = 1080;
         refreshRate = 60;

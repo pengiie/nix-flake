@@ -26,5 +26,6 @@
     prismlauncher
     lmms
     gimp
+    firefox
   ];
 }
