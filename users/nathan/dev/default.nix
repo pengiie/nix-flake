@@ -8,14 +8,17 @@
   home.packages = with pkgs; [
     ripgrep
     gnumake
-    cmake
+
     nodejs_20
+    nodejs
+
+    cmake
     clang
     clangStdenv
+
     python3
     vscode
     yarn
-    nodejs
     renderdoc
   ];
 }

@@ -9,6 +9,7 @@
 
   ./spotify.nix
   ./zsh.nix
+  ./open-games.nix
   ];
 
   user = {

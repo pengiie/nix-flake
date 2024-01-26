@@ -11,7 +11,8 @@
     vscode-langservers-extracted
     # "its so over" - ThePrimeagen
     (import ./htmx-lsp { inherit pkgs; })
-
+    clang-tools
+    cmake-language-server
 
     vimPlugins.markdown-preview-nvim
   ];

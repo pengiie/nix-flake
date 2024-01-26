@@ -40,6 +40,8 @@
         gaps_out = config.theme.spacing.margins.desktop;
 
         resize_on_border = true;
+        no_border_on_floating = true;
+        cursor_inactive_timeout = 5;
       };
 
       decoration = {
@@ -134,6 +136,9 @@
         ",XF86MonBrightnessUp, exec, light -A 5%"
         ",XF86MonBrightnessDown, exec, light -U 5%"
       ] else []);
+      bindm = [
+        "SUPER_SHIFT,mouse:272,movewindow"
+      ];
     
       windowrulev2 = [
         "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"

@@ -95,3 +95,15 @@ lspconfig.html.setup {
   capabilities = capabilities,
   filetypes = { "html", "htmldjango" },
 }
+
+lspconfig.clangd.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "c", "cpp", "hpp", "h" },
+}
+
+lspconfig.cmake.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "cmake" },
+}

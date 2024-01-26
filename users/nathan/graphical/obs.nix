@@ -11,6 +11,7 @@
       pkgs.obs-studio-plugins.droidcam-obs
       pkgs.obs-studio-plugins.obs-pipewire-audio-capture
       pkgs.obs-studio-plugins.obs-backgroundremoval
+      pkgs.obs-studio-plugins.obs-livesplit-one
     ];
   };
 }
