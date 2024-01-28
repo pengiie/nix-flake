@@ -46,6 +46,29 @@ vim.keymap.set("n", "<leader>dN", function() -- go to previous diagnostic
   vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
 end)
 
+-- dap
+vim.keymap.set("n", "<leader>dd", function() -- list
+  vim.cmd("RustDebuggables")
+end)
+vim.keymap.set("n", "<leader>du", function() -- run
+  require("dapui").toggle()
+end)
+vim.keymap.set("n", "<leader>db", function() -- toggle breakpoint
+  require("dap").toggle_breakpoint()
+end)
+vim.keymap.set("n", "<leader>dc", function() -- continue
+  require("dap").continue()
+end)
+vim.keymap.set("n", "<leader>di", function() -- restart
+  require("dap").step_into()
+end)
+vim.keymap.set("n", "<leader>ds", function() -- step over
+  require("dap").step_over()
+end)
+vim.keymap.set("n", "<leader>do", function() -- step out
+  require("dap").step_out()
+end)
+
 -- bufferline tabs
 -- local bufferline = require("bufferline")
 

@@ -12,5 +12,6 @@
     wireshark
     lmms
     libreoffice
+    scarab
   ];
 }

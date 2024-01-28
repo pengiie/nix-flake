@@ -127,6 +127,18 @@ local general = {
       vim.g.mkdp_filetypes = { "markdown" }
     end,
   },
+
+  -- debug
+  {
+    "mfussenegger/nvim-dap",
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = {"mfussenegger/nvim-dap"},
+    config = function(_, _)
+      require("dapui").setup()
+    end
+  },
 }
 
 local plugins = {};

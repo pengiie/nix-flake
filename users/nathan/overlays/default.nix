@@ -10,5 +10,6 @@
       inherit system;
       browser-previews = inputs.browser-previews;
     })
+    (import ./renderdoc.nix args)
   ];
 }
