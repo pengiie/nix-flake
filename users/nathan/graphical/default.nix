@@ -22,5 +22,6 @@
     gimp
     firefox
     goxel
+    blender
   ];
 }

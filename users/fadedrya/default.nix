@@ -2,14 +2,9 @@
 { pkgs, ... }: {
   imports = [
   ../common
+  ../common/dev/nvim
 
-  ./dev
-  ./graphical
-  ./overlays
-
-  ./spotify.nix
   ./zsh.nix
-  ./open-games.nix
   ];
 
   user = {

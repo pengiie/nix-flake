@@ -7,16 +7,9 @@
     enableCompletion = true;
     
     shellAliases = {
-      up = "sudo nixos-rebuild switch --flake /home/nathan/flake#${config.host.name}";
+      up = "sudo nixos-rebuild switch --flake /home/nathan/system-flake#fadedrya";
       upuser = "NIXPKGS_ALLOW_UNFREE=1 home-manager switch --flake /home/nathan/flake#${config.user.name}-${config.host.name} --impure";
-      apc = "bluetoothctl connect EC:73:79:35:26:BD";
-      apd = "bluetoothctl disconnect EC:73:79:35:26:BD";
       dva = "echo \"use flake\" >> .envrc && direnv allow";
-      notes = "cd /home/nathan/vaults/notes/";
-      paratym = "cd /home/nathan/dev/paratym/";
-      gcnix = "nix-env --delete-generations 7d; nix-store --gc";
-      wuser = "cd /mnt/windows/Users/nathan/";
-      fadedrya = "kitty +kitten ssh nathan@192.168.0.250";
     };
   };
 

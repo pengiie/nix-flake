@@ -19,10 +19,5 @@
     python3
     vscode
     yarn
-    renderdoc
-
-    jetbrains.rust-rover
-
-    gh-markdown-preview
   ];
 }
