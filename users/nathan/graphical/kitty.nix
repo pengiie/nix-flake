@@ -8,6 +8,7 @@
     keybindings = {
       # tab management
       "alt+n" = "new_tab_with_cwd";
+      "alt+m" = "new_tab";
       "alt+q" = "close_tab";
 
       # movements
