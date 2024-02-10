@@ -2,7 +2,6 @@
   imports = [
     ./direnv.nix
     ./git.nix
-    ./nvim
   ];
 
   home.packages = with pkgs; [

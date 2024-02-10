@@ -4,6 +4,8 @@
   ../common
   ../common/dev/nvim
 
+  ./dev
+  ./graphical.nix
   ./zsh.nix
   ];
 
