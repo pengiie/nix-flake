@@ -35,7 +35,7 @@
       tab_powerline_style = "slanted";
       tab_bar_align = "left";
 
-      background_opacity = if config.host.wallpaper then "0.8" else "1.0";
+      background_opacity = "0.8";
       active_tab_background = cutil.color.shadeHex config.theme.colors.active 0.75;
 
       scrollback_lines = 10000;

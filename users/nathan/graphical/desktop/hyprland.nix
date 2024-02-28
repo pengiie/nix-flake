@@ -14,7 +14,7 @@
 
     settings = {
       monitor = map (monitor: let
-        resolution = "${toString monitor.resolution.width}x${toString monitor.resolution.height}";
+        resolution = "${toString monitor.resolution.width}x${toString monitor.resolution.height}@${toString monitor.refreshRate}";
         position = "${toString monitor.position.x}x${toString monitor.position.y}";
       in "${monitor.name}, ${resolution}, ${position}, ${toString monitor.scale}"
       ) config.host.monitors;

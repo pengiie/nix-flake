@@ -10,6 +10,7 @@
 
   home.packages = with pkgs; [
     discord
+    protonvpn-gui
     google-chrome-dev
     google-chrome
     blueberry
@@ -23,5 +24,6 @@
     firefox
     goxel
     blender
+    fractal
   ];
 }
