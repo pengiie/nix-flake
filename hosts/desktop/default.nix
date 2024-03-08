@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   imports = [
     ../common
 
@@ -24,4 +24,7 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+
+  services.pipewire.jack.enable = true;
+  programs.noisetorch.enable = true;
 }

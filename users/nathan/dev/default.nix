@@ -24,5 +24,6 @@
     jetbrains.rust-rover
 
     gh-markdown-preview
+    protonvpn-cli
   ];
 }

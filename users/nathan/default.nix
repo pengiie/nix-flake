@@ -25,5 +25,7 @@
 
   home.packages = with pkgs; [
     hueadm
+    zip
+    unzip
   ];
 }

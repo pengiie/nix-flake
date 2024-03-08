@@ -9,6 +9,7 @@
   ];
 
   home.packages = with pkgs; [
+    helvum
     discord
     protonvpn-gui
     google-chrome-dev
