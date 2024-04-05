@@ -2,11 +2,16 @@
   home.packages = with pkgs; [
     libva
     libsForQt5.qt5.qtwayland
+    libsForQt5.polkit-kde-agent
     qt6.qtwayland
     xwaylandvideobridge
     grim
     slurp
-  ];
+    wl-clipboard
+    playerctl
+    hyprpicker
+    waypipe
+  ] ++ lib.lists.optional config.user.desktop.enableWallpaper pkgs.swww;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -61,7 +66,7 @@
         # Reload font cache and launch eww status bars
         "fc-cache -f; eww kill; eww daemon; ${lib.concatMapStringsSep " & " (m: "eww open ${m.name}-status-bar") config.host.monitors}"
       ] ++ 
-        (if config.host.wallpaper then [
+        (if config.user.desktop.enableWallpaper then [
           ## On non-laptop devices, run swww for wallpapers
           "swww kill; swww init; random-wallpaper"
         ] else [
@@ -88,8 +93,6 @@
         "SUPER, R, exec, hyprctl reload" # reload hyprland
         "SUPER, Q, killactive" # kill active window
         "SUPER, Escape, exit" # exit hyprland
-        "SUPER_SHIFT, P, exec, hyprctl keyword env WLR_NO_HARDWARE_CURSORS,1" # disable hardware cursors
-        "SUPER_SHIFT, O, exec, hyprctl keyword env WLR_NO_HARDWARE_CURSORS,0" # enable hardware cursors
 
         ## Window Management
         "SUPER, H, movefocus, l"

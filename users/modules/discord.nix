@@ -1,4 +1,6 @@
-{ ... }: {
+{ pkgs, ... }: {
+  home.packages = [ pkgs.discord ];
+
   # Desktop file, enable electron wayland support with ozone through
   xdg.desktopEntries.discord = {
       name = "Discord";

@@ -2,7 +2,7 @@
   vscode-lldb = pkgs.vscode-extensions.vadimcn.vscode-lldb;
 in {
   home.packages = with pkgs; [
-    neovim-nightly
+    neovim
 
     # LSP/Helpers
     nixd

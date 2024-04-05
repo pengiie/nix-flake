@@ -1,5 +1,4 @@
-{ pkgs, config, ... }: {
-  # Enable shell history
+{ pkgs, config, lib, ... }: {
   programs.hstr.enable = true;
 
   programs.zsh = {
@@ -12,12 +11,8 @@
       apc = "bluetoothctl connect EC:73:79:35:26:BD";
       apd = "bluetoothctl disconnect EC:73:79:35:26:BD";
       dva = "echo \"use flake\" >> .envrc && direnv allow";
-      notes = "cd /home/nathan/vaults/notes/";
-      paratym = "cd /home/nathan/dev/paratym/";
       gcnix = "nix-env --delete-generations 7d; nix-store --gc";
-      wuser = "cd /mnt/windows/Users/nathan/";
-      fadedrya = "kitty +kitten ssh nathan@192.168.0.250";
-    };
+    } // config.user.shellAliases;
   };
 
   programs.zsh.oh-my-zsh = {

@@ -1,8 +1,8 @@
-{ ... }: {
+{ config, ... }: {
   programs.git = {
     enable = true;
-    userName = "pengiie";
-    userEmail = "nathan@pengie.dev";
+    userName = config.user.git.username;
+    userEmail = config.user.git.email;
 
 
     extraConfig = {

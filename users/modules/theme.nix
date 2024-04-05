@@ -3,7 +3,7 @@ let
   inherit (lib) mkOption types;
   inherit (config.theme) colors;
 
-  catppuccin = (import ./schemes/catppuccin.nix args).catppuccin;
+  catppuccin = (import ./colorschemes/catppuccin.nix args).catppuccin;
 in {
   options.theme = {
     colors = {
