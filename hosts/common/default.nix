@@ -54,7 +54,6 @@
     git
     wget
     curl
-    networkmanagerapplet
     pamixer
     xdg-utils
     libsForQt5.polkit-kde-agent

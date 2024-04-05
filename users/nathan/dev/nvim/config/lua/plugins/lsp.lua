@@ -70,16 +70,14 @@ local lsps = {
       vim.g.rustfmt_autosave = 1
     end,
   },
+
   {
-    "simrat39/rust-tools.nvim",
+    'mrcjkb/rustaceanvim',
+    version = '^4',
     lazy = true,
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function ()
-      return require "plugins.configs.rust-tools"
-    end,
-    config = function(_, opts)
-      require('rust-tools').setup(opts)
+    ft = { 'rust' },
+    config = function()
+      require("plugins.configs.rustaceanvim")
     end,
   },
 

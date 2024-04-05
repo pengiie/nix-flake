@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, ... }: {
   imports = [
     ./desktop
 
@@ -6,13 +6,12 @@
     ./kitty.nix
     ./theming.nix
     ./obs.nix
+    ./emulation.nix
   ];
 
   home.packages = with pkgs; [
     helvum
     discord
-    protonvpn-gui
-    google-chrome-dev
     google-chrome
     blueberry
     pavucontrol
@@ -25,6 +24,5 @@
     firefox
     goxel
     blender
-    fractal
   ];
 }

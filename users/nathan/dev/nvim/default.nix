@@ -2,7 +2,7 @@
   vscode-lldb = pkgs.vscode-extensions.vadimcn.vscode-lldb;
 in {
   home.packages = with pkgs; [
-    neovim 
+    neovim-nightly
 
     # LSP/Helpers
     nixd
@@ -15,6 +15,7 @@ in {
     (import ./htmx-lsp { inherit pkgs; })
     clang-tools
     cmake-language-server
+    glslls
 
     vimPlugins.markdown-preview-nvim
 

@@ -15,6 +15,7 @@ in {
     (import ./htmx-lsp { inherit pkgs; })
     clang-tools
     cmake-language-server
+    glslls
 
     vimPlugins.markdown-preview-nvim
 

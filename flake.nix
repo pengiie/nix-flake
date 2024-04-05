@@ -2,23 +2,22 @@
   description = "Pengiie/Nathan's NixOS/Home Manager Configurations";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/release-23.11";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     homeManager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    browser-previews = {
-      url = "github:r-k-b/browser-previews";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = {
     nixpkgs, 
     homeManager,
     nixos-hardware,
-    browser-previews,
+    nixpkgs-unstable,
+    neovim-nightly-overlay,
     ...
   }@inputs: let
     cutil = import ./utils { inherit inputs; lib = nixpkgs.lib; };
@@ -34,7 +33,7 @@
           allowUnfreePredicate = _: true;
         };
       };
-      specialArgs = { inherit inputs cutil; };
+      specialArgs = { inherit inputs cutil system; };
       modules = modules;
     };
 

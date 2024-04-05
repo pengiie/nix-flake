@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ inputs, pkgs, system, ... }: {
   imports = [
     ./direnv.nix
     ./git.nix
@@ -21,7 +21,7 @@
     yarn
     renderdoc
 
-    jetbrains.rust-rover
+    inputs.nixpkgs-unstable.legacyPackages.${system}.jetbrains.rust-rover
 
     gh-markdown-preview
     protonvpn-cli

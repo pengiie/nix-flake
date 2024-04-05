@@ -1,9 +1,14 @@
-{ config, cutil, ... }: {
+{ config, cutil, pkgs, ... }: {
   programs.kitty = {
     enable = true;
     theme = "Catppuccin-Mocha";
 
     shellIntegration.enableZshIntegration = true;
+
+    font = {
+      package = pkgs.comic-mono;
+      name = "Comic Mono";
+    };
 
     keybindings = {
       # tab management

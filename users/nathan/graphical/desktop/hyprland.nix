@@ -32,6 +32,10 @@
         workspace_swipe_fingers = 3;
       };
 
+      "device:wacom-intuos-s-2-pen" = {
+        output = "DP-3";
+      };
+
       general = {
         "col.inactive_border" = "rgba(00000000)";
         "col.active_border" = "rgba(${lib.strings.removePrefix "#" config.theme.colors.primary}44)";
@@ -67,8 +71,8 @@
       );
 
       exec-once = [
-      "/nix/store/$(ls -la /nix/store | grep polkit-kde-agent | grep '^d' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 &"
-      "xwaylandvideobridge &"
+        "/nix/store/$(ls -la /nix/store | grep polkit-kde-agent | grep '^d' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 &"
+        "xwaylandvideobridge &"
       ];
 
       env = (if config.host.nvidia then [
