@@ -72,12 +72,15 @@ local lsps = {
   },
 
   {
-    'mrcjkb/rustaceanvim',
-    version = '^4',
+    "simrat39/rust-tools.nvim",
     lazy = true,
-    ft = { 'rust' },
-    config = function()
-      require("plugins.configs.rustaceanvim")
+    ft = "rust",
+    dependencies = "neovim/nvim-lspconfig",
+    opts = function ()
+      return require("plugins.configs.rust-tools")
+    end,
+    config = function(_, opts)
+      require('rust-tools').setup(opts)
     end,
   },
 
