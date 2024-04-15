@@ -1,4 +1,8 @@
-{ inputs, pkgs, system, config, lib, ... }: {
+{ inputs, pkgs, system, config, lib, ... }: let
+  citra-pkgs = import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/336eda0d07dc5e2be1f923990ad9fdb6bc8e28e3.tar.gz";
+  }) {};
+in {
   imports = [
   # Must be imported for every user.
   ./user.nix
@@ -14,6 +18,7 @@
   ./modules/theming.nix
   ./modules/discord.nix
   ./modules/nvim
+  ./modules/citra
 
   # Encapsulates the entire DE
   ./modules/desktop.nix
@@ -47,8 +52,6 @@
     vscode
 
     gh-markdown-preview
-
-    citra-nightly
 
     gimp
     blender

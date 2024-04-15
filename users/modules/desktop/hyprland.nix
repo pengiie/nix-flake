@@ -37,7 +37,8 @@
         workspace_swipe_fingers = 3;
       };
 
-      "device:wacom-intuos-s-2-pen" = {
+      device = {
+        name = "wacom-intuos-s-2-pen";
         output = "DP-3";
       };
 

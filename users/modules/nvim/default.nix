@@ -11,6 +11,7 @@ in {
     tailwindcss-language-server
     lua-language-server
     vscode-langservers-extracted
+    nodePackages.typescript-language-server
     # "its so over" - ThePrimeagen
     (import ./htmx-lsp { inherit pkgs; })
     clang-tools

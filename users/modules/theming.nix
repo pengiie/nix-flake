@@ -39,6 +39,10 @@
         variant = "mocha";
       };
     };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders;
+    };
     gtk2.extraConfig = ''
       gtk-application-prefer-dark-theme=1
     '';
@@ -47,4 +51,12 @@
     };
     gtk4.extraConfig = gtk3.extraConfig; 
   };
+  
+  nixpkgs.overlays = [
+    (final: prev: {
+      catppuccin-papirus-folders = prev.catppuccin-papirus-folders.override {
+        accent = "mauve";
+      };
+    })
+  ];
 }

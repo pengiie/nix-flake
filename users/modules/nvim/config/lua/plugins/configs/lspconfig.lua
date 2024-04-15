@@ -71,3 +71,7 @@ lspconfig.glslls.setup {
   capabilities = capabilities,
   filetypes = { "glsl" },
 }
+
+lspconfig.tsserver.setup {
+  capabilities = capabilities,
+}

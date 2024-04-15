@@ -5,7 +5,7 @@
   ];
 
   home.packages = with pkgs; [
-    eww-wayland
+    eww
   ];
 
   xdg.configFile."eww/widgets.yuck".source = ./widgets.yuck;

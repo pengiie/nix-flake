@@ -20,6 +20,15 @@ local general = {
     end
   },
 
+  -- {
+  --   "morhetz/gruvbox",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd([[colorscheme gruvbox]])
+  --   end
+  -- },
+
   -- file tree
   {
     "nvim-tree/nvim-tree.lua",
@@ -71,6 +80,12 @@ local general = {
     dependencies = {
       { "nvim-telescope/telescope-fzy-native.nvim", build = "make" },
     },
+    opts = function()
+      return require("plugins.configs.telescope")
+    end,
+    config = function(_, opts)
+      require("telescope").setup(opts)
+    end,
   },
 
   -- github copilot

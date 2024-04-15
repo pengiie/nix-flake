@@ -1,6 +1,6 @@
 local options = {
   defaults = {
-    ignore_file_patterns = {
+    file_ignore_patterns = {
       "node_modules",
       "./git",
     }
