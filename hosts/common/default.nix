@@ -68,6 +68,7 @@
   # Enable OpenGL support
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
   hardware.opengl.extraPackages = with pkgs; [
     vaapiVdpau
     libvdpau-va-gl
@@ -82,6 +83,7 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
+    wireplumber.enable = true;
   };
 
   # Bluetooth
