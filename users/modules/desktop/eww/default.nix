@@ -13,7 +13,7 @@
     (include "./widgets.yuck")
 
     (defpoll time :interval "1s" 
-      `TZ="America/Phoenix" date +'%H:%M %p'`)
+      `TZ="America/New_York" date +'%H:%M %p'`)
 
 
     ${lib.concatStrings (lib.imap0 (i: m: ''
