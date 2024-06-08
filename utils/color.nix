@@ -38,6 +38,10 @@
     b = hexToDec (builtins.substring 4 2 hex);
   in rgb r g b;
   
+  hexToRgba = hexStr: alpha: let 
+    rgb = parseHex hexStr;
+  in "rgba(${builtins.toString rgb.r}, ${builtins.toString rgb.g}, ${builtins.toString rgb.b}, ${builtins.toString alpha})";
+  
   # converts the channel into a 2 wide hex string
   hexChannel = c: let
     str = "0${lib.trivial.toHexString c}";

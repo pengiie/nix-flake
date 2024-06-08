@@ -22,7 +22,7 @@
         resolution = "${toString monitor.resolution.width}x${toString monitor.resolution.height}@${toString monitor.refreshRate}";
         position = "${toString monitor.position.x}x${toString monitor.position.y}";
       in "${monitor.name}, ${resolution}, ${position}, ${toString monitor.scale}"
-      ) config.host.monitors;
+      ) config.host.monitors ++ ["Unknown-1,disable"];
 
       input = {
         touchpad = {
@@ -51,7 +51,10 @@
 
         resize_on_border = true;
         no_border_on_floating = true;
-        cursor_inactive_timeout = 5;
+      };
+      
+      cursor = {
+        inactive_timeout = 3;
       };
 
       decoration = {
@@ -93,6 +96,7 @@
         ## Hyprland
         "SUPER, R, exec, hyprctl reload" # reload hyprland
         "SUPER, Q, killactive" # kill active window
+        "ALT, F5, killactive"
         "SUPER, Escape, exit" # exit hyprland
 
         ## Window Management
@@ -134,7 +138,7 @@
         "SUPER, M, exec, minimal-mode toggle"
 
         ## Quick Apps
-        "SUPER, Return, exec, kitty"
+        "SUPER, T, exec, kitty"
         "ALT, Space, exec, rofi -show drun"
         ", Print, exec, grim -g \"\$(slurp)\" - | wl-copy"
       ]) ++ (if config.host.laptop then [

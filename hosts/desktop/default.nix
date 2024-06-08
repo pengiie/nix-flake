@@ -24,7 +24,12 @@
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+  programs.gamescope.enable = true;
 
   services.pipewire.jack.enable = true;
+  services.pipewire.extraConfig.pipewire = {
+    "default.clock.rate" = 48000;
+  };
+  sound.enable = true;
   programs.noisetorch.enable = true;
 }

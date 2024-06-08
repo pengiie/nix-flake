@@ -64,14 +64,14 @@
 
     .workspace-button {
       padding: 0 8px;
-      background-color: ${config.theme.colors.bg.base3};
+      background-color: ${cutil.color.hexToRgba config.theme.colors.bg.base3 0.4};
 
       &.active {
-        background-color: ${cutil.color.shadeLHex config.theme.colors.active 0.25 };
+        background-color: ${cutil.color.hexToRgba (cutil.color.shadeLHex config.theme.colors.active 0.25) 0.4 };
       }
 
       &:hover {
-        background-color: ${config.theme.colors.active};
+        background-color: ${cutil.color.hexToRgba config.theme.colors.active 0.4};
       }
     }
 

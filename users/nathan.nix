@@ -43,7 +43,7 @@ in {
     obs.droidcam = !config.host.laptop;
 
     desktop = {
-      enableWallpaper = false;
+      enableWallpaper = true;
     };
   };
 

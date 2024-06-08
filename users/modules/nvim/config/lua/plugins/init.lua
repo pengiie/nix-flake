@@ -20,6 +20,25 @@ local general = {
     end
   },
 
+  {
+    "xiyaowong/transparent.nvim",
+    lazy = false,
+    opts = function ()
+      return {
+        extra_groups = {
+          "NvimTreeNormal",
+          "NvimTreeWinSeparator",
+          "lualine_c_normal",
+          "lualine_c_inactive",
+          "lualine_x_filetype_DevIconRs_normal"
+        }
+      }
+    end,
+    config = function (_, opts)
+      require("transparent").setup(opts)
+    end
+  },
+
   -- {
   --   "morhetz/gruvbox",
   --   lazy = false,
