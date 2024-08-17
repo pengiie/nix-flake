@@ -6,12 +6,12 @@ in {
     host.desktop = {
       quickSwap.left = mkOption {
         type = types.str;
-        default = (builtins.elemAt config.host.monitors 0).name;
+        default = if (builtins.length config.host.monitors) == 0 then "null" else (builtins.elemAt config.host.monitors 0).name;
         description = "One of the monitors to swap from";
       };
       quickSwap.right = mkOption {
         type = types.str;
-        default = (builtins.elemAt config.host.monitors 1).name;
+        default = if (builtins.length config.host.monitors) == 0 then "null" else (builtins.elemAt config.host.monitors 0).name;
         description = "One of the monitors to swap to";
       };
     };
