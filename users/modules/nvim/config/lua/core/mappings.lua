@@ -30,10 +30,10 @@ vim.keymap.set("n", "<leader>Q", ":qa<CR>") -- quit all
 -- diagnostics
 
 vim.keymap.set("n", "<leader>dd", function() -- see document diagnostics
-  require("trouble").toggle("document_diagnostics")
+  require("trouble").toggle({ mode = "diagnostics", filter = { buf = 0 }, focus = true })
 end)
 vim.keymap.set("n", "<leader>dw", function() -- see workspace diagnostics
-  require("trouble").toggle({ mode = "workspace_diagnostics" })
+  require("trouble").toggle({ mode = "diagnostics", focus = true })
 end)
 vim.keymap.set("n", "<leader>dl", function() -- see loclist diagnostics
   require("trouble").toggle({ mode = "loclist" })

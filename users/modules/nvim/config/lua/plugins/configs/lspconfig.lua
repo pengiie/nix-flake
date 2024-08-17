@@ -47,10 +47,10 @@ lspconfig.lua_ls.setup {
   end
 }
 
-lspconfig.htmx.setup {
-  capabilities = capabilities,
-  filetypes = { "html", "htmldjango" },
-}
+-- lspconfig.htmx.setup {
+--   capabilities = capabilities,
+--   filetypes = { "html", "htmldjango" },
+-- }
 
 lspconfig.html.setup {
   capabilities = capabilities,
@@ -73,5 +73,9 @@ lspconfig.glslls.setup {
 }
 
 lspconfig.tsserver.setup {
+  capabilities = capabilities,
+}
+
+lspconfig.zls.setup {
   capabilities = capabilities,
 }

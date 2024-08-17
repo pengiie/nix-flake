@@ -11,7 +11,7 @@ in {
   ./modules/git.nix
   ./modules/dev.nix
   ./modules/direnv.nix
-  ./modules/renderdoc.nix
+  #./modules/renderdoc.nix
   ./modules/kitty.nix
   ./modules/obs.nix
   ./modules/google-chrome.nix

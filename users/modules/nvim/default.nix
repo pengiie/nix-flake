@@ -17,6 +17,7 @@ in {
     clang-tools
     cmake-language-server
     glslls
+    zls
 
     vimPlugins.markdown-preview-nvim
 

@@ -18,7 +18,7 @@
       noto-fonts-cjk
       noto-fonts-emoji
       liberation_ttf
-      (pkgs.nerdfonts.override { fonts = [ 
+      (nerdfonts.override { fonts = [ 
         "FiraCode"
         "DaddyTimeMono"
         "CascadiaCode"
@@ -31,9 +31,9 @@
   gtk = rec {
     enable = true;
     theme = {
-      name = "Catppuccin-Mocha-Compact-Pink-Dark";
+      name = "catppuccin-mocha-mauve-compact+rimless";
       package = pkgs.catppuccin-gtk.override {
-        accents = [ "pink" ];
+        accents = [ "mauve" ];
         size = "compact";
         tweaks = [ "rimless" ];
         variant = "mocha";

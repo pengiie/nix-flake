@@ -163,16 +163,16 @@ local general = {
   },
 
   -- debug
-  {
-    "mfussenegger/nvim-dap",
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = {"mfussenegger/nvim-dap"},
-    config = function(_, _)
-      require("dapui").setup()
-    end
-  },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  -- },
+  -- {
+  --   "rcarriga/nvim-dap-ui",
+  --   dependencies = {"mfussenegger/nvim-dap"},
+  --   config = function(_, _)
+  --     require("dapui").setup()
+  --   end
+  -- },
 
   -- vim game
   {

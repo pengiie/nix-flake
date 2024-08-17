@@ -12,8 +12,8 @@
 
     keybindings = {
       # tab management
-      "alt+n" = "new_tab_with_cwd";
-      "alt+m" = "new_tab";
+      "alt+n" = "new_tab_with_cwd !neighbor";
+      "alt+m" = "new_tab !neighbor";
       "alt+q" = "close_tab";
 
       # movements
@@ -23,6 +23,8 @@
       "alt+shift+h" = "move_tab_backward";
       "alt+tab" = "next_tab";
       "alt+shift+tab" = "previous_tab";
+      "alt+u" = "scroll_page_up";
+      "alt+d" = "scroll_page_down";
 
       # map alt+jk to arrow keys
       "alt+j" = "send_text all \\x1b[B";

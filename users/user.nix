@@ -70,7 +70,7 @@ in {
         pavucontrol
 
         vlc
-        cinnamon.nemo
+        nemo
         firefox
 
         libsForQt5.polkit-kde-agent

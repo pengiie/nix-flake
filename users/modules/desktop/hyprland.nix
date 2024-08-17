@@ -44,7 +44,8 @@
 
       general = {
         "col.inactive_border" = "rgba(00000000)";
-        "col.active_border" = "rgba(${lib.strings.removePrefix "#" config.theme.colors.primary}44)";
+        "col.active_border" = "rgba(${lib.strings.removePrefix "#" config.theme.colors.primary}77)";
+        border_size = 2;
 
         gaps_in = config.theme.spacing.margins.desktop;
         gaps_out = config.theme.spacing.margins.desktop;

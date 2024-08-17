@@ -33,7 +33,7 @@
   networking.networkmanager.enable = true;
 
   # Locale
-  time.timeZone = "America/New_York";
+  time.timeZone = "America/Phoenix";
   i18n.defaultLocale = "en_US.UTF-8";
 
   # DConf settings
@@ -66,13 +66,13 @@
   };
 
   # Enable OpenGL support
-  hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
-  hardware.opengl.extraPackages = with pkgs; [
-    vaapiVdpau
-    libvdpau-va-gl
-  ];
+  # hardware.opengl.enable = true;
+  # hardware.opengl.driSupport = true;
+  # hardware.opengl.driSupport32Bit = true;
+  # hardware.opengl.extraPackages = with pkgs; [
+  #   vaapiVdpau
+  #   libvdpau-va-gl
+  # ];
 
   # Hyprland ( Enables other necessary components )
   programs.hyprland.enable = true;

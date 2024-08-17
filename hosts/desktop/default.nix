@@ -30,6 +30,9 @@
   services.pipewire.extraConfig.pipewire = {
     "default.clock.rate" = 48000;
   };
-  sound.enable = true;
+  # Persist the auto-mute = false for speaker in alsa mixer
+  hardware.alsa.enablePersistence = true;
   programs.noisetorch.enable = true;
+
+  networking.firewall.checkReversePath = "loose";
 }
