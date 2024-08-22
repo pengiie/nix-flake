@@ -13,7 +13,7 @@
         refreshRate = 60;
         position.x = 0;
         position.y = 0;
-        scale = 1.15;
+        scale = 1.0;
       }
     ];
     desktop.quickSwap.left = "eDP-1";
