@@ -27,5 +27,9 @@
         scale = 1.0;
       }
     ];
+    desktop.quickSwap = {
+      left = "HDMI-A-1";
+      right = "DP-3";
+    };
   };
 }

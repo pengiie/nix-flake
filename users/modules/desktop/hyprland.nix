@@ -82,7 +82,7 @@
 
       exec-once = [
         "/nix/store/$(ls -la /nix/store | grep polkit-kde-agent | grep '^d' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 &"
-        # "xwaylandvideobridge &"
+        "xwaylandvideobridge &"
       ];
 
       env = (if config.host.nvidia then [
@@ -154,10 +154,10 @@
       ];
     
       windowrulev2 = [
-        # "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
-        # "noanim,class:^(xwaylandvideobridge)$"
-        # "nofocus,class:^(xwaylandvideobridge)$"
-        # "noinitialfocus,class:^(xwaylandvideobridge)$"
+        "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
+        "noanim,class:^(xwaylandvideobridge)$"
+        "nofocus,class:^(xwaylandvideobridge)$"
+        "noinitialfocus,class:^(xwaylandvideobridge)$"
       ];
 
       layerrule = [ 

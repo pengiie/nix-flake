@@ -7,6 +7,11 @@
     experimental-features = [ "nix-command" "flakes" ];
   };
 
+  nix.optimise = {
+    automatic = true;
+    dates = [ "Mon *-*-* 12:00:00" ];
+  };
+
   system.stateVersion = "23.05";
 
   # Zsh shell

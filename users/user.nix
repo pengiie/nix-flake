@@ -71,7 +71,7 @@ in {
 
         vlc
         nemo
-        firefox
+        firefox-beta
 
         libsForQt5.polkit-kde-agent
       ];
