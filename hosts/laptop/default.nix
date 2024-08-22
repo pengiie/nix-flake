@@ -15,5 +15,8 @@
 
   # Service to control fans through software
   services.thermald.enable = true;
+  services.thermald.configFile = ./thermald-conf.xml;
   services.acpid.enable = true;
+
+  programs.nix-ld.enable = true;
 }

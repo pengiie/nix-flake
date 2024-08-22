@@ -63,8 +63,8 @@
 
     homeConfigurations = {
       nathan-desktop = mkUser [ ./hosts/desktop/config.nix ./users/nathan.nix ]; 
-      nathan-laptop = mkUser [ ./hosts/laptop/config.nix ./users/nathan.nix ];
-      nathan-fadedrya = mkUser [ ./hosts/fadedrya/config.nix ./users/fadedrya.nix ];
+      nathan-laptop = mkUser [ ./hosts/laptop/config.nix ./users/nathan-laptop.nix ];
+      nathan-fadedrya = mkUser [ ./hosts/fadedrya/config.nix ./users/fadedrya ];
     };
   };
 }
