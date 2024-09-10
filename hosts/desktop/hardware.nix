@@ -27,6 +27,10 @@
     device = "/dev/disk/by-uuid/3492A1B992A1804A";
     fsType = "ntfs";
   };
+  fileSystems."/mnt/win-old" = {
+    device = "/dev/disk/by-uuid/F0440F4B440F13CE";
+    fsType = "ntfs";
+  };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/936331ae-570a-4e37-9ba6-8f61be25cdc4"; }

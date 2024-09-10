@@ -37,7 +37,10 @@ in {
       fillchars = { eob = " "; vert = " "; };
     };
 
-    globals = { mapleader = " "; };
+    globals = { 
+      mapleader = " "; 
+      rustfmt_autosave = 1;
+    };
 
     keymaps = [
       # Line numbers
@@ -281,7 +284,7 @@ in {
           ];
           mapping = {
             "<C-Space>" = "cmp.mapping.complete()";
-            "<CR>" = "cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = true }";
+            "<CR>" = "cmp.mapping.confirm { behavior = cmp.ConfirmBehavior.Insert, select = false }";
             "<Tab>" = "cmp.mapping.select_next_item()";
             "<S-Tab>" = "cmp.mapping.select_prev_item()";
           };

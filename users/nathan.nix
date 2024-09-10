@@ -11,7 +11,7 @@ in {
   ./modules/git.nix
   ./modules/dev.nix
   ./modules/direnv.nix
-  #./modules/renderdoc.nix
+  ./modules/renderdoc.nix
   ./modules/kitty.nix
   ./modules/obs.nix
   ./modules/google-chrome.nix
@@ -50,6 +50,7 @@ in {
   home.packages = with pkgs; lib.lists.optionals (!config.host.laptop) [
     inputs.nixpkgs-unstable.legacyPackages.${system}.jetbrains.rust-rover
     vscode
+    osu-lazer
 
     gh-markdown-preview
 
@@ -61,5 +62,7 @@ in {
     prismlauncher
     scarab
     clonehero
+
+    image-roll
   ];
 }
