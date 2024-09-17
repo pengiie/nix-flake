@@ -162,11 +162,13 @@ in {
 
       lualine = {
         enable = true;
-        theme = "catppuccin";
-        componentSeparators.right = "|";
-        componentSeparators.left = "|";
-        sectionSeparators.right = "";
-        sectionSeparators.left = "";
+        settings.options = {
+          theme = "catppuccin";
+          component_separators.right = "|";
+          component_separators.left = "|";
+          section_separators.right = "";
+          section_separators.left = "";
+        };
       };
 
       # File explorer
@@ -217,7 +219,6 @@ in {
           lua-ls.enable = true;
           clangd.enable = true;
           cmake.enable = true;
-          tsserver.enable = true;
           zls.enable = true;
         };
         keymaps = {
@@ -301,6 +302,9 @@ in {
         enable = true;
         rustAnalyzerPackage = pkgs.rust-analyzer;
       };
+
+      hex.enable = true;
+      wakatime.enable = true;
     };
   };
 }

@@ -64,5 +64,8 @@ in {
     clonehero
 
     image-roll
+    wineWowPackages.waylandFull
+    winetricks
+    opentabletdriver
   ];
 }
