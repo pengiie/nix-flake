@@ -15,6 +15,8 @@
 
   programs.ssh.startAgent = true;
 
+  hardware.opentabletdriver.enable = true;
+
   users.users."nathan".openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGKjnG27iMrDlET2Wxs58otPJBqwW0y5WR1GNRgjPF+6 desktop"
   ];

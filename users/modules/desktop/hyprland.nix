@@ -37,11 +37,6 @@
         workspace_swipe_fingers = 3;
       };
 
-      device = {
-        name = "wacom-intuos-s-2-pen";
-        output = "DP-3";
-      };
-
       general = {
         "col.inactive_border" = "rgba(00000000)";
         "col.active_border" = "rgba(${lib.strings.removePrefix "#" config.theme.colors.primary}77)";

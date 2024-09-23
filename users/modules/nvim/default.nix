@@ -195,6 +195,7 @@ in {
           "<leader>ff" = "find_files";
           "<leader>fg" = "live_grep";
           "<leader>fk" = "keymaps";
+          "<leader>fr" = "resume";
         };
       };
 

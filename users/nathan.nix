@@ -50,7 +50,7 @@ in {
   home.packages = with pkgs; lib.lists.optionals (!config.host.laptop) [
     inputs.nixpkgs-unstable.legacyPackages.${system}.jetbrains.rust-rover
     vscode
-    osu-lazer
+    osu-lazer-bin
 
     gh-markdown-preview
 
