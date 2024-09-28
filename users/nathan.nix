@@ -60,7 +60,7 @@ in {
     audacity
     krita
     prismlauncher
-    scarab
+    lumafly
     clonehero
 
     image-roll

@@ -162,12 +162,23 @@ in {
 
       lualine = {
         enable = true;
-        settings.options = {
-          theme = "catppuccin";
-          component_separators.right = "|";
-          component_separators.left = "|";
-          section_separators.right = "";
-          section_separators.left = "";
+        settings = {
+          options = {
+            theme = "catppuccin";
+            component_separators.right = "|";
+            component_separators.left = "|";
+            section_separators.right = "";
+            section_separators.left = "";
+          };
+
+          sections = {
+            lualine_x = [
+              "require('lsp-status').status()"
+              "encoding"
+              "fileformat"
+              "filetype"
+            ];
+          };
         };
       };
 
@@ -306,6 +317,13 @@ in {
 
       hex.enable = true;
       wakatime.enable = true;
+      lsp-status = {
+        enable = true;
+        settings = {
+          current_function = false;
+          show_filename = false;
+        };
+      };
     };
   };
 }
