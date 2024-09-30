@@ -1,5 +1,6 @@
-{ pkgs, inputs, ... }: let 
+{ pkgs, inputs, config, ... }: let 
   vscode-lldb = pkgs.vscode-extensions.vadimcn.vscode-lldb;
+  undo-dir = "${config.home.homeDirectory}/.local/state/nvim/undo";
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
@@ -35,12 +36,23 @@ in {
 
       termguicolors = true; # enable the good colors
       fillchars = { eob = " "; vert = " "; };
+
+      undofile = true; # Create undo files for persisten undo history
+      undodir = undo-dir;
     };
 
     globals = { 
       mapleader = " "; 
       rustfmt_autosave = 1;
     };
+
+    # Create undo dir if it doesn't exist (repoducible necessity)
+    # 448 = 0o700
+    extraConfigLua = '' 
+      if vim.fn.isdirectory('${undo-dir}') == 0 then
+          vim.fn.mkdir('${undo-dir}', 'p', 448)
+      end
+    '';
 
     keymaps = [
       # Line numbers
@@ -141,6 +153,13 @@ in {
         key = "<leader>fe";
         action = ":NvimTreeFindFile<CR>";
       }
+
+      # Undo tree
+      {
+        mode = "n";
+        key = "<leader>u";
+        action = ":UndotreeToggle<CR>";
+      }
     ];
 
     clipboard.providers.wl-copy.enable = true;
@@ -152,7 +171,7 @@ in {
       transparent = {
         enable = true;
         settings.extra_groups = [
-          "NvimTreeNormal"
+          "NkimTreeNormal"
           "NvimTreeWinSeparator"
           "lualine_c_normal"
           "lualine_c_inactive"
@@ -317,6 +336,7 @@ in {
 
       hex.enable = true;
       wakatime.enable = true;
+      undotree.enable = true;
       lsp-status = {
         enable = true;
         settings = {
