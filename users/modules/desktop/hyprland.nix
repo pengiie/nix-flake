@@ -62,13 +62,16 @@
         disable_splash_rendering = true;
       };
 
+      render.explicit_sync = 0;
+      render.explicit_sync_kms = 0;
+
       exec = ([
         # Reload font cache and launch eww status bars
         "fc-cache -f; eww kill; eww daemon; ${lib.concatMapStringsSep " & " (m: "eww open ${m.name}-status-bar") config.host.monitors}"
       ] ++ 
         (if config.user.desktop.enableWallpaper then [
           ## On non-laptop devices, run swww for wallpapers
-          "swww kill; swww init; random-wallpaper"
+          "swww kill; swww init;"
         ] else [
           ## On laptop devices, ensure swww is not running
           "swww kill"

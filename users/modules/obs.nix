@@ -6,6 +6,7 @@
     rev = "refs/pull/8/head";
     hash = "sha256-j905gMz6ieVFaaSv00S5ANKwlQGqa0v9qwxwgzt2V0o=";
   };
+  obs-livesplit-one = pkgs.callPackage ./obs-livesplit-one { };
 in {
   home.packages = lib.mkIf enableDroidCam [
     # adb for droidcam plugin
@@ -17,6 +18,10 @@ in {
       obs-studio-plugins.wlrobs
       obs-studio-plugins.obs-pipewire-audio-capture
       obs-studio-plugins.obs-backgroundremoval
+      obs-studio-plugins.obs-multi-rtmp
+      obs-studio-plugins.obs-vkcapture
+      obs-studio-plugins.obs-websocket
+      obs-livesplit-one
     ] ++ lib.lists.optional enableDroidCam obs-studio-plugins.droidcam-obs;
   };
 

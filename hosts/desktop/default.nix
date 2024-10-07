@@ -5,6 +5,7 @@
     ./hardware.nix
     ./config.nix
     ./nvidia.nix
+    ./nginx.nix
   ];
 
   services.openssh = {

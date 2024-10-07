@@ -167,6 +167,9 @@ in {
     colorschemes.catppuccin.enable = true;
 
     plugins = {
+      # Icon dep
+      web-devicons.enable = true;
+
       # Appearance
       transparent = {
         enable = true;
@@ -342,6 +345,7 @@ in {
         settings = {
           current_function = false;
           show_filename = false;
+          status_symbol = "";
         };
       };
     };

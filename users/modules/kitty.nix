@@ -1,7 +1,7 @@
 { config, cutil, pkgs, ... }: {
   programs.kitty = {
     enable = true;
-    theme = "Catppuccin-Mocha";
+    themeFile = "Catppuccin-Mocha";
 
     shellIntegration.enableZshIntegration = true;
 
@@ -42,7 +42,7 @@
       tab_powerline_style = "slanted";
       tab_bar_align = "left";
 
-      background_opacity = "0.8";
+      background_opacity = "0.9";
       active_tab_background = cutil.color.shadeHex config.theme.colors.active 0.75;
 
       scrollback_lines = 10000;
