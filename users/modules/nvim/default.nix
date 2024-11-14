@@ -39,6 +39,8 @@ in {
 
       undofile = true; # Create undo files for persisten undo history
       undodir = undo-dir;
+
+      swapfile = false; # It just keeps opening up blank files, i save anyways.
     };
 
     globals = { 
@@ -250,10 +252,14 @@ in {
           bashls.enable = true;
           html.enable = true;
           nixd.enable = true;
-          lua-ls.enable = true;
+          lua_ls.enable = true;
           clangd.enable = true;
           cmake.enable = true;
           zls.enable = true;
+          rust_analyzer = {
+            installCargo = false;
+            installRustc = false;
+          };
         };
         keymaps = {
           lspBuf = {

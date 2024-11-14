@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
   imports = [
     ../common
 
@@ -38,4 +38,14 @@
   programs.noisetorch.enable = true;
 
   networking.firewall.checkReversePath = "loose";
+  networking.nameservers = lib.mkForce [ "10.2.0.1" ];
+
+  # MTP support
+  services.gvfs.enable = true;
+
+  # RGB Support
+  services.hardware.openrgb = {
+    enable = true;
+    motherboard = "amd";
+  };
 }

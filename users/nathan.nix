@@ -47,6 +47,10 @@ in {
     };
   };
 
+  nixpkgs.overlays = [
+    inputs.firefox-nightly.overlays.firefox
+  ];
+
   home.packages = with pkgs; lib.lists.optionals (!config.host.laptop) [
     inputs.nixpkgs-unstable.legacyPackages.${system}.jetbrains.rust-rover
     vscode
@@ -67,5 +71,11 @@ in {
     wineWowPackages.waylandFull
     winetricks
     opentabletdriver
+    
+    latest.firefox-nightly-bin
+
+    kicad-small
+    librecad
+    freecad
   ];
 }

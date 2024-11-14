@@ -4,6 +4,9 @@
       nodejs
       yarn
 
+      gdb
+      valgrind
+
       # C
       cmake
       clangStdenv

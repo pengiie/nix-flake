@@ -8,6 +8,7 @@
     font = {
       package = pkgs.comic-mono;
       name = "Comic Mono";
+      size = 13.0;
     };
 
     keybindings = {

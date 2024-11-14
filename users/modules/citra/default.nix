@@ -13,8 +13,8 @@ in {
       src = pkgs.fetchFromGitHub {
         owner = "PabloMK7";
         repo = "citra";
-        rev = "518f7234f79bb6d423fc6060f1c2c71c4dc5f9d9";
-        sha256 = "sha256-ZXutCItOHTb9l3hx9wKvrbwVnHO+1/KFBA3iXB9eCfE=";
+        rev = "cdce02607abf1b43cdf93c6f367825158f23a467";
+        sha256 = "sha256-3h/A4Nne5KHhdY20V9Ue9pAvGVCc5Um0ZsMIgPzAflc=";
         fetchSubmodules = true;
       };
       nativeBuildInputs = with pkgs; [

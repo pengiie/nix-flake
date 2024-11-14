@@ -15,6 +15,7 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    firefox-nightly.url = "github:mozilla/nixpkgs-mozilla";
 
     fenix = {
       url = "github:nix-community/fenix";

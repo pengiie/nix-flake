@@ -50,7 +50,8 @@
       };
       
       cursor = {
-        inactive_timeout = 3;
+        inactive_timeout = 2.5;
+        no_hardware_cursors = true;
       };
 
       decoration = {
@@ -62,8 +63,8 @@
         disable_splash_rendering = true;
       };
 
-      render.explicit_sync = 0;
-      render.explicit_sync_kms = 0;
+      # render.explicit_sync = 1;
+      # render.explicit_sync_kms = 0;
 
       exec = ([
         # Reload font cache and launch eww status bars
@@ -88,7 +89,6 @@
         "XDG_SESSION_TYPE,wayland"
         "GBM_BACKEND,nvidia-drm"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-        "WLR_NO_HARDWARE_CURSORS,1"
       ] else []);
 
       bind = ([

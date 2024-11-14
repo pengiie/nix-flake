@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: 
+{ lib, inputs, config, pkgs, ... }: 
 let
   inherit (lib) mkOption types;
 in {
@@ -44,7 +44,7 @@ in {
   };
 
   config = {
-    nix.package = pkgs.nixFlakes;
+    nix.package = pkgs.nixVersions.stable;
 
     home = {
       username = config.user.name;
