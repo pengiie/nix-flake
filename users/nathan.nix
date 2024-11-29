@@ -1,7 +1,7 @@
 { inputs, pkgs, system, config, lib, ... }: let
-  citra-pkgs = import (builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/336eda0d07dc5e2be1f923990ad9fdb6bc8e28e3.tar.gz";
-  }) {};
+  kicad-fixed = pkgs.writeShellScriptBin "kicad-fixed" ''
+      GTK_THEME=Adwaita gdb -ex=r -ex=q --args bash -e /home/nathan/.nix-profile/bin/kicad
+  '';
 in {
   imports = [
   # Must be imported for every user.
@@ -29,9 +29,11 @@ in {
     email = "nathan@pengie.dev";
 
     shellAliases = {
-      notes = "cd /home/nathan/vaults/notes/";
-      paratym = "cd /home/nathan/dev/paratym/";
-      wuser = "cd /mnt/windows/Users/nathan/";
+      notes = "cd /home/nathan/notes";
+      para = "cd /home/nathan/dev/paratym";
+      rogue = "cd /home/nathan/dev/paratym/rogue";
+      flake = "cd /home/nathan/flake";
+      wuser = "cd /mnt/windows/Users/nathan";
       fadedrya = "kitty +kitten ssh nathan@192.168.0.250";
     };
 
@@ -74,8 +76,16 @@ in {
     
     latest.firefox-nightly-bin
 
-    kicad-small
+    kicad-fixed
+    kicad
     librecad
     freecad
   ];
+
+
+  xdg.desktopEntries.kicad-fixed = {
+    name = "Kicad Fixed";
+    exec = "kicad-fixed";
+  };
+
 }
