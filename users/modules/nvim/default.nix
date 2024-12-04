@@ -1,6 +1,54 @@
-{ pkgs, inputs, config, ... }: let 
+{ pkgs, inputs, config, lib, ... }: let 
   vscode-lldb = pkgs.vscode-extensions.vadimcn.vscode-lldb;
   undo-dir = "${config.home.homeDirectory}/.local/state/nvim/undo";
+  slangd = pkgs.stdenv.mkDerivation (finalAttrs: {
+    pname = "slangd";
+    version = "2024.14.6";
+    src = pkgs.fetchFromGitHub {
+      owner = "shader-slang";
+      repo = "slang";
+      rev = "refs/tags/v${finalAttrs.version}";
+      sha256 = "sha256-q/FR7CA3FddbHBmINOqQqfmOhlusswv3femKFax2AnM=";
+      fetchSubmodules = true;
+    };
+
+    outputs = [
+      "out"
+      "dev"
+    ];
+
+    buildInputs = [
+      pkgs.cmake
+      pkgs.python3
+      pkgs.pkg-config
+      pkgs.ninja
+
+      pkgs.xorg.libX11
+    ];
+
+    cmakeFlags = [
+      "-DSLANG_VERSION_FULL=${finalAttrs.version}"
+    ];
+
+    configurePhase = ''
+      cmake --preset default
+    '';
+
+    buildPhase = ''
+      cmake --build --preset release
+    '';
+
+    installPhase = ''
+      mkdir -p $out/bin
+      mkdir -p $out/lib
+      mkdir -p $dev/dev
+      mkdir -p $dev/include
+
+      cmake --install ./build --prefix $out
+
+      mv $out/include $dev/include
+    '';
+  });
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
@@ -168,6 +216,10 @@ in {
 
     colorschemes.catppuccin.enable = true;
 
+    filetype.extension = {
+      slang = "shaderslang";
+    };
+
     plugins = {
       # Icon dep
       web-devicons.enable = true;
@@ -259,6 +311,17 @@ in {
           rust_analyzer = {
             installCargo = false;
             installRustc = false;
+          };
+          slangd = {
+            enable = true;
+            package = slangd;
+            filetypes = [ "slang" ];
+            settings.slang = {
+              inlayHints = {
+                deducedTypes = true;
+                parameterNames = true;
+              };
+            };
           };
         };
         keymaps = {

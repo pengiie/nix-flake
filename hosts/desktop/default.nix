@@ -42,10 +42,4 @@
 
   # MTP support
   services.gvfs.enable = true;
-
-  # RGB Support
-  services.hardware.openrgb = {
-    enable = true;
-    motherboard = "amd";
-  };
 }

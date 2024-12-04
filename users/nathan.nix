@@ -73,8 +73,6 @@ in {
     wineWowPackages.waylandFull
     winetricks
     opentabletdriver
-    
-    latest.firefox-nightly-bin
 
     kicad-fixed
     kicad

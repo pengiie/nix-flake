@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   home.packages = [ 
-    pkgs.discord
+    pkgs.discord-canary
     pkgs.betterdiscordctl
   ];
 

@@ -1,18 +1,23 @@
 { pkgs, ... }: {
-    home.packages = with pkgs; [
-      # JS
-      nodejs
-      yarn
+  home.packages = with pkgs; [
+    # JS
+    nodejs
+    yarn
 
-      gdb
-      valgrind
+    gdb
+    valgrind
 
-      # C
-      cmake
-      clangStdenv
-      gnumake
+    # C
+    cmake
+    clangStdenv
+    gnumake
 
-      # unfortunately...
-      python3
-    ];
-  }
+    # unfortunately...
+    python3
+
+  ];
+
+  programs.btop = {
+    enable = true;
+  };
+}
