@@ -49,7 +49,7 @@ in {
     home = {
       username = config.user.name;
       homeDirectory = "/home/${config.user.name}";
-      stateVersion = "23.05";
+      stateVersion = "24.05";
 
       sessionVariables = {
         TERM = "kitty";
@@ -80,6 +80,14 @@ in {
     nixpkgs.config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;
+      permittedInsecurePackages = [
+        "dotnet-runtime-7.0.20"
+        "dotnet-sdk-wrapped-7.0.410"
+        "dotnet-sdk-7.0.410"
+        "dotnet-runtime-6.0.36"
+        "dotnet-sdk-wrapped-6.0.428"
+        "dotnet-sdk-6.0.428"
+      ];
     };
 
     systemd.user.startServices = true;

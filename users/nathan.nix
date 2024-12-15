@@ -78,6 +78,10 @@ in {
     kicad
     librecad
     freecad
+
+    qdirstat
+    kdenlive
+    showmethekey
   ];
 
 

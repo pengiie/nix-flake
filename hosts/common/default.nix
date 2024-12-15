@@ -67,7 +67,6 @@
     curl
     pamixer
     xdg-utils
-    libsForQt5.polkit-kde-agent
   ];
 
   # Htop, the task manager of linux kinda
@@ -94,7 +93,20 @@
     enable = true;
     alsa.enable = true;
     pulse.enable = true;
-    wireplumber.enable = true;
+    wireplumber = {
+      enable = true;
+      configPackages = [
+        (pkgs.writeTextDir "share/wireplumber/wireplumber.conf.d/51-no-auto-headset-switch.conf" ''
+          wireplumber.settings = {
+            bluetooth.autoswitch-to-headset-profile = false
+          }
+
+          monitor.bluez.properties = {
+            bluez5.roles = [ a2dp_sink a2dp_source ]
+          }
+        '')
+      ];
+    };
   };
 
   # Bluetooth

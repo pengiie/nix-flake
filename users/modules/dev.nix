@@ -1,5 +1,6 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
+{ pkgs, ... }: let in {
+  
+home.packages = with pkgs; [
     # JS
     nodejs
     yarn
@@ -13,7 +14,12 @@
     gnumake
 
     # unfortunately...
-    python3
+    (python3.withPackages (python-pkgs: [
+      python-pkgs.pip
+      python-pkgs.setuptools
+      python-pkgs.srt
+      # TODO: Package https://github.com/alphacep/vosk-api/tree/master/python so we can have kdenlive tts
+    ]))
 
   ];
 

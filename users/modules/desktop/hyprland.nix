@@ -2,7 +2,6 @@
   home.packages = with pkgs; [
     libva
     libsForQt5.qt5.qtwayland
-    libsForQt5.polkit-kde-agent
     qt6.qtwayland
     xwaylandvideobridge
     grim
@@ -80,7 +79,7 @@
       );
 
       exec-once = [
-        "/nix/store/$(ls -la /nix/store | grep polkit-kde-agent | grep '^d' | awk '{print $9}')/libexec/polkit-kde-authentication-agent-1 &"
+        "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent&"
         "xwaylandvideobridge &"
       ];
 
@@ -117,13 +116,22 @@
         "SUPER, 4, workspace, 4"
         "SUPER, 5, workspace, 5"
         "SUPER, 6, workspace, 6"
+        "SUPER, 7, workspace, 6"
+        "SUPER, 8, workspace, 8"
+        "SUPER, 9, workspace, 9"
         "SUPER_SHIFT, 1, movetoworkspacesilent, 1"
         "SUPER_SHIFT, 2, movetoworkspacesilent, 2"
         "SUPER_SHIFT, 3, movetoworkspacesilent, 3"
         "SUPER_SHIFT, 4, movetoworkspacesilent, 4"
         "SUPER_SHIFT, 5, movetoworkspacesilent, 5"
         "SUPER_SHIFT, 6, movetoworkspacesilent, 6"
+        "SUPER_SHIFT, 7, movetoworkspacesilent, 7"
+        "SUPER_SHIFT, 8, movetoworkspacesilent, 8"
+        "SUPER_SHIFT, 9, movetoworkspacesilent, 9"
+
         "SUPER, W, swapactiveworkspaces, ${config.host.desktop.quickSwap.left} ${config.host.desktop.quickSwap.right}"
+        "SUPER, Left, focusmonitor, ${config.host.desktop.quickSwap.left}"
+        "SUPER, Right, focusmonitor, ${config.host.desktop.quickSwap.right}"
 
         ## System
         ",XF86AudioRaiseVolume, exec, pamixer -i 2"
@@ -138,6 +146,8 @@
 
         ## Quick Apps
         "SUPER, T, exec, kitty"
+        "SUPER, V, exec, pavucontrol"
+        "SUPER, B, exec, blueberry" # Bluetooth gui
         "ALT, Space, exec, rofi -show drun"
         ", Print, exec, grim -g \"\$(slurp)\" - | wl-copy"
       ]) ++ (if config.host.laptop then [
@@ -156,6 +166,15 @@
         "noanim,class:^(xwaylandvideobridge)$"
         "nofocus,class:^(xwaylandvideobridge)$"
         "noinitialfocus,class:^(xwaylandvideobridge)$"
+        
+        "noinitialfocus,class:^(showmethekey-gtk)$"
+        "float,class:^(showmethekey-gtk)$"
+        "opacity 0.5,class:^(showmethekey-gtk)$"
+        "nodim 0.5,class:^(showmethekey-gtk)$"
+        "decorate 0,class:^(showmethekey-gtk)$"
+
+        "float,class:^(org\.pulseaudio\.pavucontrol)$"
+        "float,class:^(blueberry\.py)$"
       ];
 
       layerrule = [ 

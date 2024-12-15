@@ -6,7 +6,7 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     homeManager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -44,6 +44,11 @@
         config = {
           allowUnfree = true;
           allowUnfreePredicate = _: true;
+          permittedInsecurePackages = [
+            "dotnet-runtime-6.0.36"
+            "dotnet-sdk-wrapped-6.0.428"
+            "dotnet-sdk-6.0.428"
+          ];
         };
       };
       specialArgs = { inherit inputs cutil system; };
