@@ -210,6 +210,19 @@ in {
         key = "<leader>u";
         action = ":UndotreeToggle<CR>";
       }
+
+      # Toggle inlay hints
+      {
+        mode = "n";
+        key = "<leader>h";
+        action = {
+          __raw = ''
+            function()
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+            end
+          '';
+        };
+      }
     ];
 
     clipboard.providers.wl-copy.enable = true;
@@ -299,7 +312,7 @@ in {
       # LSP stuff
       lsp = {
         enable = true;
-        inlayHints = true;
+        inlayHints = false;
         servers = {
           bashls.enable = true;
           html.enable = true;

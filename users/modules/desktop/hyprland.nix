@@ -168,9 +168,10 @@
         "noinitialfocus,class:^(xwaylandvideobridge)$"
         
         "noinitialfocus,class:^(showmethekey-gtk)$"
+        "nofocus,class:^(showmethekey-gtk)$"
         "float,class:^(showmethekey-gtk)$"
-        "opacity 0.5,class:^(showmethekey-gtk)$"
-        "nodim 0.5,class:^(showmethekey-gtk)$"
+        "pin,class:^(showmethekey-gtk)$"
+        "opacity 0.0 override 0.0 override,class:^(showmethekey-gtk)$"
         "decorate 0,class:^(showmethekey-gtk)$"
 
         "float,class:^(org\.pulseaudio\.pavucontrol)$"
