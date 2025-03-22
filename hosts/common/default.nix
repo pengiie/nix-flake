@@ -1,4 +1,6 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }: let
+  scarlett2 = pkgs.callPackage ./scarlett.nix {};
+in {
   imports = [
     ./firewall.nix
   ];
@@ -29,14 +31,17 @@
 
   # OBS Virtual Camera
   security.polkit.enable = true;
-  boot.kernelModules = [
-    "v4l2loopback"
-  ];
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    v4l2loopback
-  ];
+  # boot.kernelModules = [
+  #   "v4l2loopback"
+  # ];
+  # boot.extraModulePackages = with config.boot.kernelPackages; [
+  #   v4l2loopback
+  # ];
+
+  # Scarlett Solo Gen 4 support.
+  #    # options v4l2loopback devices=1 video_nr=1 card_label="OBS Virtual Camera" exclusive_caps=1
   boot.extraModprobeConfig = ''
-    options v4l2loopback devices=1 video_nr=1 card_label="OBS Virtual Camera" exclusive_caps=1
+    options snd_usb_audio vid=0x1235 pid=0x8218 device_setup=1,1,1,1
   '';
 
   # Networking
@@ -67,6 +72,7 @@
     curl
     pamixer
     xdg-utils
+    scarlett2
   ];
 
   # Htop, the task manager of linux kinda

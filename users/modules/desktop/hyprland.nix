@@ -3,7 +3,6 @@
     libva
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
-    xwaylandvideobridge
     grim
     slurp
     wl-clipboard
@@ -79,8 +78,7 @@
       );
 
       exec-once = [
-        "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent&"
-        "xwaylandvideobridge &"
+        "${pkgs.hyprpolkitagent}/libexec/hyprpolkitagent &"
       ];
 
       env = (if config.host.nvidia then [
@@ -116,7 +114,7 @@
         "SUPER, 4, workspace, 4"
         "SUPER, 5, workspace, 5"
         "SUPER, 6, workspace, 6"
-        "SUPER, 7, workspace, 6"
+        "SUPER, 7, workspace, 7"
         "SUPER, 8, workspace, 8"
         "SUPER, 9, workspace, 9"
         "SUPER_SHIFT, 1, movetoworkspacesilent, 1"
@@ -162,11 +160,6 @@
       ];
     
       windowrulev2 = [
-        "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
-        "noanim,class:^(xwaylandvideobridge)$"
-        "nofocus,class:^(xwaylandvideobridge)$"
-        "noinitialfocus,class:^(xwaylandvideobridge)$"
-        
         "noinitialfocus,class:^(showmethekey-gtk)$"
         "nofocus,class:^(showmethekey-gtk)$"
         "float,class:^(showmethekey-gtk)$"

@@ -55,6 +55,7 @@ in {
 
   home.packages = with pkgs; lib.lists.optionals (!config.host.laptop) [
     inputs.nixpkgs-unstable.legacyPackages.${system}.jetbrains.rust-rover
+    inputs.nixpkgs-unstable.legacyPackages.${system}.jetbrains.clion
     vscode
     osu-lazer-bin
 
@@ -82,8 +83,12 @@ in {
     qdirstat
     kdenlive
     showmethekey
+
+    alsa-scarlett-gui
+    (bottles.override { extraPkgs = inpkgs: [ inpkgs.wineasio ]; })
   ];
 
+  home.file."wineasio-pkg".source = pkgs.wineasio;
 
   xdg.desktopEntries.kicad-fixed = {
     name = "Kicad Fixed";

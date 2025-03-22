@@ -51,6 +51,12 @@
     };
     gtk4.extraConfig = gtk3.extraConfig; 
   };
+
+  qt = {
+    enable = true;
+    style.package = pkgs.catppuccin-qt5ct;
+    style.name = "catppuccin-mocha-mauve";
+  };
   
   nixpkgs.overlays = [
     (final: prev: {

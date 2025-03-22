@@ -18,6 +18,6 @@
   };
 
   # Using workaround declared here.
-  hardware.nvidia.modesetting.enable = false;
-  boot.kernelParams = [ "nvidia-drm.modeset=1" ];
+  hardware.nvidia.modesetting.enable = true;
+  # boot.kernelParams = [ "nvidia-drm.modeset=1" ];
 }

@@ -8,6 +8,13 @@
     ./nginx.nix
   ];
 
+  # 6.12 kernel doesn't work with virtbox without this.
+  # https://github.com/NixOS/nixpkgs/issues/363887#issuecomment-2536693220
+  boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
+  virtualisation.virtualbox = {
+    host.enable = true;
+  };
+
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;

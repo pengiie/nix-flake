@@ -11,6 +11,7 @@
   boot.supportedFilesystems = [ "ntfs" "vfat" ];
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
+  boot.kernelPackages = pkgs.linuxPackages_6_12;
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
@@ -27,14 +28,14 @@
     device = "/dev/disk/by-uuid/3492A1B992A1804A";
     fsType = "ntfs";
   };
-  fileSystems."/mnt/win-old" = {
-    device = "/dev/disk/by-uuid/F0440F4B440F13CE";
-    fsType = "ntfs";
-  };
-  fileSystems."/mnt/win-osu" = {
-    device = "/dev/disk/by-uuid/F0440F4B440F13CF";
-    fsType = "ntfs";
-  };
+  # fileSystems."/mnt/win-old" = {
+  #   device = "/dev/disk/by-uuid/F0440F4B440F13CE";
+  #   fsType = "ntfs";
+  # };
+  # fileSystems."/mnt/win-osu" = {
+  #   device = "/dev/disk/by-uuid/F0440F4B440F13CF";
+  #   fsType = "ntfs";
+  # };
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/936331ae-570a-4e37-9ba6-8f61be25cdc4"; }

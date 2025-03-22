@@ -318,6 +318,7 @@ in {
           html.enable = true;
           nixd.enable = true;
           lua_ls.enable = true;
+          tsserver.enable = true;
           clangd.enable = true;
           cmake.enable = true;
           zls.enable = true;
@@ -431,6 +432,10 @@ in {
         };
       };
     };
+
+    extraPlugins = [
+      pkgs.vimPlugins.presence-nvim
+    ];
   };
 }
   # Old pre-nixvim

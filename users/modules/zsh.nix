@@ -1,6 +1,6 @@
 { pkgs, config, lib, ... }: {
-  programs.hstr.enable = true;
 
+  programs.hstr.enable = true;
   programs.zsh = {
     enable = true;
     enableCompletion = true;

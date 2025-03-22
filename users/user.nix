@@ -66,7 +66,7 @@ in {
         blueberry
 
         # Audio patch and mixer
-        helvum
+        qpwgraph
         pavucontrol
 
         vlc
