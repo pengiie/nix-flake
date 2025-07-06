@@ -11,7 +11,7 @@
   boot.supportedFilesystems = [ "ntfs" "vfat" ];
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "usbhid" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
+  boot.kernelPackages = pkgs.linuxPackages_6_15;
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
@@ -27,6 +27,7 @@
   fileSystems."/mnt/windows" = {
     device = "/dev/disk/by-uuid/3492A1B992A1804A";
     fsType = "ntfs";
+    # options = ["rw" "uid=1000"];
   };
   # fileSystems."/mnt/win-old" = {
   #   device = "/dev/disk/by-uuid/F0440F4B440F13CE";

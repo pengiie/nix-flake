@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: {
+{ inputs, config, lib, pkgs, ... }: {
   home.packages = with pkgs; [
     libva
     libsForQt5.qt5.qtwayland
@@ -8,7 +8,7 @@
     wl-clipboard
     playerctl
     hyprpicker
-    waypipe
+    inputs.nixpkgs-24.legacyPackages.${system}.waypipe
   ] ++ lib.lists.optional config.user.desktop.enableWallpaper pkgs.swww;
 
   wayland.windowManager.hyprland = {

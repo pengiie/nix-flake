@@ -1,14 +1,14 @@
-{ pkgs, inputs, config, lib, ... }: let 
+{ pkgs, inputs, config, system, lib, ... }: let 
   vscode-lldb = pkgs.vscode-extensions.vadimcn.vscode-lldb;
   undo-dir = "${config.home.homeDirectory}/.local/state/nvim/undo";
   slangd = pkgs.stdenv.mkDerivation (finalAttrs: {
     pname = "slangd";
-    version = "2024.14.6";
+    version = "2025.6.3";
     src = pkgs.fetchFromGitHub {
       owner = "shader-slang";
       repo = "slang";
       rev = "refs/tags/v${finalAttrs.version}";
-      sha256 = "sha256-q/FR7CA3FddbHBmINOqQqfmOhlusswv3femKFax2AnM=";
+      sha256 = "sha256-raPZTio//avzHqpbkR53TuXBQV+RTdgJ7LZUxVQ/VD0=";
       fetchSubmodules = true;
     };
 
@@ -28,6 +28,7 @@
 
     cmakeFlags = [
       "-DSLANG_VERSION_FULL=${finalAttrs.version}"
+      "-DSLANG_ENABLE_SLANG_RHI=OFF"
     ];
 
     configurePhase = ''
@@ -91,18 +92,16 @@ in {
       swapfile = false; # It just keeps opening up blank files, i save anyways.
     };
 
+    files."after/ftplugin/cpp.lua".opts = {
+      shiftwidth = 4;
+      tabstop = 4; 
+      softtabstop = 4;
+    };
+
     globals = { 
       mapleader = " "; 
       rustfmt_autosave = 1;
     };
-
-    # Create undo dir if it doesn't exist (repoducible necessity)
-    # 448 = 0o700
-    extraConfigLua = '' 
-      if vim.fn.isdirectory('${undo-dir}') == 0 then
-          vim.fn.mkdir('${undo-dir}', 'p', 448)
-      end
-    '';
 
     keymaps = [
       # Line numbers
@@ -307,7 +306,7 @@ in {
           highlight.enable = true;
         };
       };
-      nvim-colorizer.enable = true;
+      colorizer.enable = true;
 
       # LSP stuff
       lsp = {
@@ -316,9 +315,10 @@ in {
         servers = {
           bashls.enable = true;
           html.enable = true;
+          cssls.enable = true;
           nixd.enable = true;
           lua_ls.enable = true;
-          tsserver.enable = true;
+          ts_ls.enable = true;
           clangd.enable = true;
           cmake.enable = true;
           zls.enable = true;
@@ -328,8 +328,8 @@ in {
           };
           slangd = {
             enable = true;
-            package = slangd;
-            filetypes = [ "slang" ];
+            package = inputs.nixpkgs-unstable.legacyPackages.${system}.shader-slang;
+            filetypes = [ "shaderslang" ];
             settings.slang = {
               inlayHints = {
                 deducedTypes = true;
@@ -414,10 +414,10 @@ in {
         enable = true;
       };
 
-      crates-nvim.enable = true;
+      crates.enable = true;
       rustaceanvim = {
         enable = true;
-        rustAnalyzerPackage = pkgs.rust-analyzer;
+        #package = inputs.fenix.packages.${system}.stable.rust-analyzer;
       };
 
       hex.enable = true;
@@ -431,11 +431,16 @@ in {
           status_symbol = "";
         };
       };
+      presence-nvim.enable = true;
     };
 
-    extraPlugins = [
-      pkgs.vimPlugins.presence-nvim
-    ];
+    # Create undo dir if it doesn't exist (repoducible necessity)
+    # 448 = 0o700
+    extraConfigLua = '' 
+      if vim.fn.isdirectory('${undo-dir}') == 0 then
+          vim.fn.mkdir('${undo-dir}', 'p', 448)
+      end
+    '';
   };
 }
   # Old pre-nixvim

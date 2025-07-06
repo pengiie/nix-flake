@@ -58,7 +58,7 @@ in {
   # Users
   users.users.nathan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "video" "audio" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "audio" "libvirtd" ];
 
     # Set the user shell to zsh
     shell = pkgs.zsh;
@@ -74,6 +74,13 @@ in {
     xdg-utils
     scarlett2
   ];
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+    ];
+  };
 
   # Htop, the task manager of linux kinda
   programs.htop = {

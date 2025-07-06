@@ -6,14 +6,8 @@
     ./config.nix
     ./nvidia.nix
     ./nginx.nix
+    ./virt.nix
   ];
-
-  # 6.12 kernel doesn't work with virtbox without this.
-  # https://github.com/NixOS/nixpkgs/issues/363887#issuecomment-2536693220
-  boot.kernelParams = [ "kvm.enable_virt_at_load=0" ];
-  virtualisation.virtualbox = {
-    host.enable = true;
-  };
 
   services.openssh = {
     enable = true;
@@ -37,9 +31,9 @@
   programs.gamescope.enable = true;
 
   services.pipewire.jack.enable = true;
-  services.pipewire.extraConfig.pipewire = {
-    "default.clock.rate" = 48000;
-  };
+  # services.pipewire.extraConfig.pipewire = {
+  #   "default.clock.rate" = 48000;
+  # };
   # Persist the auto-mute = false for speaker in alsa mixer
   hardware.alsa.enablePersistence = true;
   programs.noisetorch.enable = true;

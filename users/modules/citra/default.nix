@@ -4,9 +4,7 @@
     url = "https://web.archive.org/web/20231111133415/https://api.citra-emu.org/gamedb";
     hash = "sha256-J+zqtWde5NgK2QROvGewtXGRAWUTNSKHNMG6iu9m1fU=";
   };
-in {
-  home.packages = with pkgs; [
-    (pkgs.stdenv.mkDerivation rec {
+  citra = pkgs.stdenv.mkDerivation rec {
       pname = "citra-mirror";
       version = "2104";
 
@@ -99,6 +97,9 @@ in {
           --prefix LD_LIBRARY_PATH : ${libs}
         )
       '';
-    })
+    };
+in {
+  home.packages = [
+    # citra
   ];
 }

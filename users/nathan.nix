@@ -17,6 +17,8 @@ in {
   ./modules/google-chrome.nix
   ./modules/theming.nix
   ./modules/discord.nix
+  ./modules/virt.nix
+
   ./modules/nvim
   ./modules/citra
 
@@ -61,9 +63,10 @@ in {
 
     gh-markdown-preview
 
-    gimp
+    gimp3
     blender
     musescore
+    muse-sounds-manager
     audacity
     krita
     prismlauncher
@@ -81,11 +84,11 @@ in {
     freecad
 
     qdirstat
-    kdenlive
+    pkgs.kdePackages.kdenlive
     showmethekey
 
     alsa-scarlett-gui
-    (bottles.override { extraPkgs = inpkgs: [ inpkgs.wineasio ]; })
+    (inputs.nixpkgs-24.legacyPackages.${system}.bottles)
   ];
 
   home.file."wineasio-pkg".source = pkgs.wineasio;
@@ -93,6 +96,13 @@ in {
   xdg.desktopEntries.kicad-fixed = {
     name = "Kicad Fixed";
     exec = "kicad-fixed";
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+       pkgs.xdg-desktop-portal-gtk
+    ];
   };
 
 }

@@ -21,8 +21,9 @@ in {
       obs-studio-plugins.obs-multi-rtmp
       obs-studio-plugins.obs-vkcapture
       obs-studio-plugins.obs-websocket
-      obs-livesplit-one
+  #    obs-livesplit-one
     ] ++ lib.lists.optional enableDroidCam obs-studio-plugins.droidcam-obs;
+    package = (pkgs.obs-studio.override { cudaSupport = true; });
   };
 
   home.file.".config/obs-studio/themes" = {

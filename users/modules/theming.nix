@@ -18,11 +18,13 @@
       noto-fonts-cjk-sans
       noto-fonts-emoji
       liberation_ttf
-      (nerdfonts.override { fonts = [ 
-        "FiraCode"
-        "DaddyTimeMono"
-        "CascadiaCode"
-      ]; })
+      pkgs.nerd-fonts._0xproto
+      pkgs.nerd-fonts.droid-sans-mono
+      # (nerdfonts.override { fonts = [ 
+      #   "FiraCode"
+      #   "DaddyTimeMono"
+      #   "CascadiaCode"
+      # ]; })
     ];
   };
 

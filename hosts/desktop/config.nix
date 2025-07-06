@@ -8,15 +8,15 @@
     extraAllowedTCPPorts = [ 22 ];
     wallpaper = true;
     monitors = [
-      {
-        name = "HDMI-A-1";
-        resolution.width = 1920;
-        resolution.height = 1080;
-        refreshRate = 60;
-        position.x = 0;
-        position.y = 0;
-        scale = 1.0;
-      }
+      # {
+      #   name = "HDMI-A-1";
+      #   resolution.width = 1920;
+      #   resolution.height = 1080;
+      #   refreshRate = 60;
+      #   position.x = 0;
+      #   position.y = 0;
+      #   scale = 1.0;
+      # }
       {
         name = "DP-3";
         resolution.width = 2560;
@@ -28,7 +28,8 @@
       }
     ];
     desktop.quickSwap = {
-      left = "HDMI-A-1";
+      #left = "HDMI-A-1";
+      left = "DP-3";
       right = "DP-3";
     };
   };
